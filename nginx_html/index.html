@@ -23,9 +23,10 @@
             display: flex;
             align-items: center;
             justify-content: space-around;
+            flex-wrap: wrap; /* Permet à la bandeau de s'adapter aux petits écrans */
         }
         .rubrique {
-            padding: 20px;
+            padding: 10px;
             cursor: pointer;
         }
         .rubrique:hover {
@@ -41,6 +42,34 @@
             display: block;
             margin-top: 20px;
         }
+
+        /* Media queries pour les écrans de taille moyenne */
+        @media (max-width: 768px) {
+            .titre {
+                font-size: 2em; /* Taille réduite du texte */
+            }
+            .bandeau {
+                height: auto; /* Ajuste la hauteur */
+            }
+            .rubrique {
+                padding: 10px 5px; /* Réduction du padding */
+            }
+        }
+
+        /* Media queries pour les petits écrans */
+        @media (max-width: 480px) {
+            .titre {
+                font-size: 1.5em; /* Réduction supplémentaire du texte */
+            }
+            .bandeau {
+                flex-direction: column; /* Réarrangement vertical pour les rubriques */
+                height: auto;
+                text-align: center;
+            }
+            .rubrique {
+                padding: 5px; /* Réduction du padding pour les petits écrans */
+            }
+        }
     </style>
 </head>
 <body>
@@ -54,4 +83,3 @@
     <img src="image/presentation_leg.jpeg" alt="Présentation de Losse en Gelaisse" class="image-presentation">
 </body>
 </html>
-
