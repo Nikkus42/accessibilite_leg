@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentification Accessibilité Losse en Gelaisse</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0fff0; /* Vert très pâle */
+        }
+        .form-container {
+            background-color: #98FB98; /* Vert pâle */
+            border: 2px solid #006400; /* Vert foncé */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: max-content; /* Largeur ajustée automatiquement */
+            max-width: 90%; /* Limite la largeur maximale à 90% de la fenêtre */
+            box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur totale */
+        }
+        .form-container h1 {
+            color: #006400; /* Vert foncé */
+            text-align: center;
+            white-space: nowrap; /* Empêche le texte de se diviser en plusieurs lignes */
+            margin-bottom: 20px; /* Espace entre le titre et les champs de saisie */
+        }
+        .form-container input[type="text"],
+        .form-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #006400;
+            border-radius: 5px;
+            box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur totale */
+        }
+        .form-container button {
+            background-color: #006400;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur totale */
+        }
+        .form-container button:hover {
+            background-color: #004d00;
+        }
+        .form-container .new-user {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .form-container .new-user a {
+            color: #006400; /* Vert foncé */
+            text-decoration: underline;
+        }
+        .form-container .new-user a:hover {
+            color: #004d00; /* Vert plus foncé au survol */
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Authentification Accessibilité Losse en Gelaisse</h1>
+        <form>
+            <input type="text" placeholder="Indiquer votre identifiant (adresse mail)" required>
+            <input type="password" placeholder="Indiquer votre mot de passe" required>
+            <button type="submit">Envoyer</button>
+        </form>
+        <div class="new-user">
+            Nouvel utilisateur : <a href="logging_new.html">Créer un nouveau compte</a>
+        </div>
+    </div>
+</body>
+</html>
