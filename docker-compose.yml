@@ -28,7 +28,7 @@ services:
         start_period: 1m
 
   authent_leg:
-      image: kartoza/postgis
+      image: postgres
       container_name: authent_leg_db
       environment:
         POSTGRES_DB: ${AUTH_POSTGRES_DB}
