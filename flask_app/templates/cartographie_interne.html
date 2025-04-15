@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEST</title>
+    <!-- Inclusion des fichiers CSS et JS d'OpenLayers -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@7.3.0/ol.css">
+    <script src="https://cdn.jsdelivr.net/npm/ol@7.3.0/dist/ol.js"></script>
+    <style>
+        /* Styling pour la page */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #title {
+            margin: 20px 0;
+        }
+        #map {
+            height: 66vh; /* 2/3 de la hauteur */
+            width: 100%; /* Pleine largeur */
+        }
+        #description {
+            margin: 20px;
+            padding: 10px;
+            background-color: #f5f5f5; /* Fond léger */
+        }
+    </style>
+</head>
+<body>
+    <!-- Titre de la page -->
+    <h1 id="title">TEST</h1>
+
+    <!-- Conteneur de la carte -->
+    <div id="map"></div>
+
+    <!-- Texte explicatif -->
+    <div id="description">
+        <p>Cette carte affiche les indicateurs récupérés depuis le WMS sous forme de couches.</p>
+    </div>
+
+    <!-- Script pour initialiser la carte et afficher les couches WMS -->
+    <script type="text/javascript">
+        // Initialisation de la carte OpenLayers
+        const map = new ol.Map({
+            target: 'map', // ID du conteneur de la carte
+            layers: [
+                new ol.layer.Tile({
+                    source: new ol.source.OSM(), // Fond OpenStreetMap
+                }),
+                new ol.layer.Image({
+                    source: new ol.source.ImageWMS({
+                        url: 'http://localhost:8085/geoserver/wms', // Utilisez le nom du service Docker
+                        params: {
+                            'LAYERS': 'vm_iris_indicateur',
+                            'FORMAT': 'image/png'
+                        },
+                        serverType: 'geoserver'
+                    })
+                })
+            ],
+            view: new ol.View({
+                center: ol.proj.fromLonLat([4.8357, 45.7640]), // Centré sur Paris
+                zoom: 12, // Niveau de zoom
+            }),
+        });
+    </script>
+</body>
+</html>
+
