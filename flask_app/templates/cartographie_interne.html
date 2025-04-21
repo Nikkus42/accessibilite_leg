@@ -1,70 +1,360 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TEST</title>
-    <!-- Inclusion des fichiers CSS et JS d'OpenLayers -->
+    <title>Accessibilité LEG</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@7.3.0/ol.css">
     <script src="https://cdn.jsdelivr.net/npm/ol@7.3.0/dist/ol.js"></script>
     <style>
-        /* Styling pour la page */
         body {
+            font-family: 'Cursive', sans-serif;
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
         }
-        #title {
-            margin: 20px 0;
+        .bandeau {
+            background-color: #90EE90; /* Vert clair */
+            height: 10vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 20px;
+            position: relative;
+        }
+        .bandeau-left {
+            position: absolute;
+            left: 20px;
+            font-size: 1em;
+            color: black;
+        }
+        .bandeau-left a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .titre {
+            font-size: 2em;
+            color: black;
+        }
+        .container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+        .indicateurs {
+            width: 25%;
+            background-color: #f5f5f5;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+        .indicateurs-title {
+            font-size: 1.5em;
+            color: #006400;
+            text-shadow: 2px 2px #98FB98;
+            margin-bottom: 20px;
+        }
+        #map-container {
+            width: 75%;
+            background-color: #006400;
+            padding: 10px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative; /* Contexte pour positionner le bouton "Accueil" */
         }
         #map {
-            height: 66vh; /* 2/3 de la hauteur */
-            width: 100%; /* Pleine largeur */
+            flex: 1;
+            width: 100%;
+            height: 100%;
         }
         #description {
             margin: 20px;
             padding: 10px;
-            background-color: #f5f5f5; /* Fond léger */
+            background-color: #f5f5f5;
+        }
+        .toggle-button {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #006400;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .toggle-button:hover {
+            background-color: #004d00;
+        }
+        .home-button {
+            position: absolute; /* Position absolue par rapport à #map-container */
+            top: 18px;
+            left: 50px;
+            z-index: 1000;
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        /* Media queries pour les écrans de taille moyenne */
+        @media (max-width: 768px) {
+            .titre {
+                font-size: 1.5em; /* Taille réduite du texte */
+            }
+            .bandeau {
+                height: auto; /* Ajuste la hauteur */
+                flex-direction: column;
+                align-items: center;
+            }
+            .bandeau-left {
+                position: static;
+                font-size: 0.9em;
+                margin-bottom: 10px;
+            }
+            .container {
+                flex-direction: column;
+            }
+            .indicateurs, #map-container {
+                width: 100%;
+            }
+        }
+
+        /* Media queries pour les petits écrans */
+        @media (max-width: 480px) {
+            .titre {
+                font-size: 1.2em; /* Réduction supplémentaire du texte */
+            }
+            .bandeau {
+                height: auto;
+                text-align: center;
+            }
+            .bandeau-left {
+                font-size: 0.8em;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Titre de la page -->
-    <h1 id="title">TEST</h1>
+    <!-- Bandeau de navigation -->
+    <div class="bandeau">
+        <div class="bandeau-left">
+            <a href="index">Agglomération LEG</a>
+        </div>
+        <div class="titre"><b>Cartographie sur l'accessibilité de Losse en Gelaisse</b></div>
+    </div>
 
-    <!-- Conteneur de la carte -->
-    <div id="map"></div>
+    <!-- Conteneur principal -->
+    <div class="container">
+        <!-- Cadre pour les indicateurs accessibilité -->
+        <div class="indicateurs">
+            <div class="indicateurs-title">Indicateurs accessibilité</div>
+        </div>
+
+        <!-- Conteneur de la carte -->
+        <div id="map-container">
+            <div id="map"></div>
+            <button class="home-button" onclick="goHome()">Accueil</button>
+            <button class="toggle-button" id="toggle-wms-quartier">Accessibilité par quartier</button>
+            <button class="toggle-button" id="toggle-wms-troncon">Tronçon d'accessibilité</button>
+        </div>
+    </div>
 
     <!-- Texte explicatif -->
     <div id="description">
         <p>Cette carte affiche les indicateurs récupérés depuis le WMS sous forme de couches.</p>
     </div>
 
-    <!-- Script pour initialiser la carte et afficher les couches WMS -->
     <script type="text/javascript">
+        const wmsLayerQuartier = new ol.layer.Image({
+            source: new ol.source.ImageWMS({
+                url: 'http://localhost:8085/geoserver/wms',
+                params: { 'LAYERS': 'vm_iris_indicateur', 'FORMAT': 'image/png' },
+                serverType: 'geoserver'
+            }),
+            opacity: 0.5,
+            visible: true
+        });
+
+        const wmsLayerTroncon = new ol.layer.Image({
+            source: new ol.source.ImageWMS({
+                url: 'http://localhost:8085/geoserver/wms',
+                params: { 'LAYERS': 'troncon_cheminement', 'FORMAT': 'image/png' },
+                serverType: 'geoserver'
+            }),
+            visible: true
+        });
+
         // Initialisation de la carte OpenLayers
         const map = new ol.Map({
             target: 'map', // ID du conteneur de la carte
             layers: [
-                new ol.layer.Tile({
-                    source: new ol.source.OSM(), // Fond OpenStreetMap
-                }),
-                new ol.layer.Image({
-                    source: new ol.source.ImageWMS({
-                        url: 'http://localhost:8085/geoserver/wms', // Utilisez le nom du service Docker
-                        params: {
-                            'LAYERS': 'vm_iris_indicateur',
-                            'FORMAT': 'image/png'
-                        },
-                        serverType: 'geoserver'
-                    })
-                })
+                new ol.layer.Tile({ source: new ol.source.OSM() }), // Fond OpenStreetMap
+                wmsLayerQuartier,
+                wmsLayerTroncon
+                
+                
             ],
             view: new ol.View({
-                center: ol.proj.fromLonLat([4.8357, 45.7640]), // Centré sur Paris
-                zoom: 12, // Niveau de zoom
-            }),
+                center: ol.proj.fromLonLat([4.8357, 45.7640]), // Centré sur Lyon
+                zoom: 12
+            })
+        });
+
+        // recentré la carte avec le boutton accueil
+        function goHome() {
+            map.getView().setCenter(ol.proj.fromLonLat([4.8357, 45.7640]));
+            map.getView().setZoom(12);
+        }
+
+        // Création d'une infobulle
+        const popup = document.createElement('div');
+        popup.id = 'popup';
+        popup.style.position = 'absolute';
+        popup.style.backgroundColor = 'white';
+        popup.style.border = '1px solid black';
+        popup.style.padding = '10px';
+        popup.style.display = 'none'; // Masqué par défaut
+        document.body.appendChild(popup);
+
+        // Fonction pour formater les valeurs
+        function formatValue(value, type) {
+            if (type === 'integer') {
+                return Math.round(value);
+            } else if (type === 'percent') {
+                return Math.round(value) + ' %';
+            } else if (type === 'meter') {
+                return Math.round(value) + ' m';
+            } else if (type === 'decimal') {
+                return value.toFixed(2);
+            }
+            return value;
+        }
+
+        // Écoute des clics sur la carte
+        map.on('singleclick', function (evt) {
+            // Vérifier si la couche "vm_iris_indicateur" est visible
+            if (wmsLayerQuartier.getVisible()) {
+                const viewResolution = map.getView().getResolution();
+                const coordinate = evt.coordinate;
+
+                const url = wmsLayerQuartier.getSource().getFeatureInfoUrl(
+                    coordinate,
+                    viewResolution,
+                    'EPSG:3857', // Remplacez par le code EPSG utilisé dans votre carte
+                    {
+                        'INFO_FORMAT': 'application/json',
+                    }
+                );
+
+                if (url) {
+                    fetch(url)
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.features && data.features.length > 0) {
+                                // Récupérer les propriétés de la première entité
+                                const properties = data.features[0].properties;
+
+                                // Contenu pour l'infobulle
+                                let content = '<b>Quartier :</b><br>';
+                                content += `Nom: ${properties['nom_iris']}<br>`;
+                                content += `Nombre d'habitants: ${formatValue(properties['population_iris'], 'integer')}<br>`;
+                                content += `Accessibilité: ${formatValue(properties['pourcent_access'], 'percent')}<br>`;
+                                content += `Accessibilité moyenne: ${formatValue(properties['pourcent_access_moy'], 'percent')}<br>`;
+                                content += `Non accessible: ${formatValue(properties['pourcent_non_access'], 'percent')}<br>`;
+                                content += `Voie accessible: ${formatValue(properties['lg_accessible'], 'meter')}<br>`;
+                                content += `Voie accessibilité moyenne: ${formatValue(properties['lg_access_moy'], 'meter')}<br>`;
+                                content += `Voie non accessible: ${formatValue(properties['lg_non_access'], 'meter')}<br>`;
+                                content += `Indicateur: ${formatValue(properties['indicateur'], 'decimal')}<br>`;
+
+                                // Mise à jour de l'infobulle
+                                popup.innerHTML = content;
+                                popup.style.left = evt.pixel[0] + 'px';
+                                popup.style.top = evt.pixel[1] + 'px';
+                                popup.style.display = 'block';
+                            } else {
+                                popup.style.display = 'none';
+                            }
+                        })
+                        .catch(err => {
+                            console.error('Erreur lors de la récupération des données (Quartier) :', err);
+                            popup.style.display = 'none';
+                        });
+                }
+            }
+            // Vérifier si la couche "troncon_cheminement" est visible
+            else if (wmsLayerTroncon.getVisible()) {
+                const viewResolution = map.getView().getResolution();
+                const coordinate = evt.coordinate;
+
+                const url = wmsLayerTroncon.getSource().getFeatureInfoUrl(
+                    coordinate,
+                    viewResolution,
+                    'EPSG:3857', // Remplacez par le code EPSG utilisé dans votre carte
+                    {
+                        'INFO_FORMAT': 'application/json',
+                    }
+                );
+
+                if (url) {
+                    fetch(url)
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.features && data.features.length > 0) {
+                                // Récupérer les propriétés de la première entité
+                                const properties = data.features[0].properties;
+
+                                // Contenu pour l'infobulle avec le nouveau titre
+                                let content = '<b>Tronçon cheminement</b><br>';
+                                content += `Type: ${properties['typtroncon']}<br>`;
+                                content += `Statut de la voie: ${properties['statutvoie']}<br>`;
+                                content += `Largeur: ${properties['largeur']} m<br>`;
+                                content += `Pente: ${properties['pente']} %<br>`;
+                                content += `Dévers: ${properties['devers']} %<br>`;
+                                content += `Accessibilité: ${properties['accessibiliteglobale']}<br>`;
+
+                                // Mise à jour de l'infobulle
+                                popup.innerHTML = content;
+                                popup.style.left = evt.pixel[0] + 'px';
+                                popup.style.top = evt.pixel[1] + 'px';
+                                popup.style.display = 'block';
+                            } else {
+                                popup.style.display = 'none';
+                            }
+                        })
+                        .catch(err => {
+                            console.error('Erreur lors de la récupération des données (Tronçon) :', err);
+                            popup.style.display = 'none';
+                        });
+                }
+            } else {
+                // Masquer l'infobulle si aucune couche n'est visible
+                popup.style.display = 'none';
+            }
+        });
+
+        // Fonction pour basculer la visibilité de la couche WMS "Accessibilité par quartier"
+        document.getElementById('toggle-wms-quartier').addEventListener('click', function() {
+            const visible = wmsLayerQuartier.getVisible();
+            wmsLayerQuartier.setVisible(!visible);
+        });
+
+        // Fonction pour basculer la visibilité de la couche WMS "Tronçon d'accessibilité"
+        document.getElementById('toggle-wms-troncon').addEventListener('click', function() {
+            const visible = wmsLayerTroncon.getVisible();
+            wmsLayerTroncon.setVisible(!visible);
+        });
+
+        // Redimensionner la carte au chargement de la page
+        window.addEventListener('load', () => {
+            map.updateSize();
+        });
+
+        // Redimensionner la carte lors du redimensionnement de la fenêtre
+        window.addEventListener('resize', () => {
+            map.updateSize();
         });
     </script>
 </body>
