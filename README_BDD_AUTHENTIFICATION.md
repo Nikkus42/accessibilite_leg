@@ -5,7 +5,7 @@ CREATE SCHEMA IF NOT EXISTS authentification;
 ### creation table user
 
 ```
-CREATE TABLE authentification.user (
+CREATE TABLE authentification.usager (
     id SERIAL PRIMARY KEY,
     utilisateur VARCHAR(255) NOT NULL UNIQUE,
     pwd VARCHAR(255) NOT NULL,
