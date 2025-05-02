@@ -89,7 +89,9 @@ def logging_new():
 def logging_modif_pwd():
     return render_template('logging_modif_pwd.html')
 
-
+@app.route('/contact')
+def logging_concact():
+    return render_template('contact.html')
 
 @app.route('/create_user', methods=['POST'])
 def create_user():

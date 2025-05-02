@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modification de votre mot de passe</title>
+    <title>Accessibilité LEG problème</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -33,13 +33,18 @@
             font-size: 2em;
         }
         .form-container input[type="text"],
-        .form-container input[type="password"] {
+        .form-container textarea {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
             border: 1px solid #006400;
             border-radius: 5px;
             box-sizing: border-box;
+        }
+        /* Pour que le textarea puisse s'agrandir verticalement */
+        .form-container textarea {
+            resize: vertical;
+            min-height: 100px;
         }
         .form-container button {
             background-color: #006400;
@@ -54,7 +59,7 @@
         .form-container button:hover {
             background-color: #004d00;
         }
-        /* Media queries pour petits écrans */
+        /* Media queries pour ajuster la taille de la police sur les petits écrans */
         @media (max-width: 768px) {
             .form-container h1 {
                 font-size: 1.5em;
@@ -65,7 +70,7 @@
                 font-size: 1.2em;
             }
             .form-container input[type="text"],
-            .form-container input[type="password"] {
+            .form-container textarea {
                 font-size: 0.9em;
             }
         }
@@ -73,16 +78,13 @@
 </head>
 <body>
     <div class="form-container">
-        <h1>Modification de votre mot de passe</h1>
-        <form action="/modif_pwd" method="POST">
-            <input type="text" name="email" placeholder="Indiquer votre identifiant" required>
-            <input type="password" name="old_password" placeholder="Indiquer votre ancien mot de passe" required>
-            <input type="password" name="new_password" placeholder="Indiquer votre nouveau mot de passe" required>
-            <input type="password" name="new_password_confirm" placeholder="Répéter votre nouveau mot de passe" required>
+        <h1>Expliquer le problème rencontré</h1>
+        <form action="/contact" method="POST">
+            <input type="text" name="email" placeholder="Indiquer votre adresse mail" required>
+            <input type="text" name="subject" placeholder="Indiquer l'objet de votre problème" required>
+            <textarea name="message" placeholder="Décrire le problème que vous avez rencontré" required></textarea>
             <button type="submit">Envoyer</button>
         </form>
     </div>
 </body>
 </html>
-
-

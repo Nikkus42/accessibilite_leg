@@ -32,7 +32,7 @@
       color: black;
     }
     .bandeau-left a {
-      text-decoration: none;
+      text-decoration: underline;
       color: inherit;
     }
     .titre {
@@ -51,6 +51,14 @@
       box-sizing: border-box;
       overflow-y: auto;
     }
+    /* Nouvelle colonne pour la carte et le conteneur de bouton */
+    .map-buttons-container {
+      width: 75%;
+      display: flex;
+      flex-direction: column;
+      /* Vous pouvez ajouter une marge ou gap si vous le souhaitez */
+      box-sizing: border-box;
+    }
     .indicateurs-title {
       font-size: 1.5em;
       color: #006400;
@@ -62,35 +70,19 @@
       height: 300px;
       margin-bottom: 20px;
     }
-    #accessibilityChart,
-    #accessibilityPieChart {
+    .button-container {
       width: 100%;
-      height: 100%;
-    }
-    #map-container {
-      width: 75%;
-      background-color: #006400;
-      padding: 10px;
-      box-sizing: border-box;
       display: flex;
-      flex-direction: column;
-      height: 100%;
-      position: relative;
-    }
-    #map {
-      flex: 1;
-      width: 100%;
-      height: 100%;
-    }
-    #description {
-      margin: 20px;
-      padding: 10px;
-      background-color: #f5f5f5;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      background: #90EE90;
+      padding: 2px;
+      box-sizing: border-box;
     }
     .toggle-button {
-      margin: 10px;
-      padding: 8px 12px;
-      font-size: 0.9em;
+      margin: 2px;
+      padding: 4px 8px;
+      font-size: 12px;
       background-color: #006400;
       color: white;
       border: none;
@@ -105,38 +97,132 @@
       top: 18px;
       left: 50px;
       z-index: 1000;
-      background-color: white;
+      background-color: rgb(230, 228, 228);
       border: 1px solid #ccc;
       padding: 5px 10px;
       cursor: pointer;
     }
+    .legend-button {
+      position: absolute;
+      top: 18px;
+      right: 10px;
+      z-index: 1000;
+      background-color: rgb(230, 228, 228);
+      border: 1px solid #ccc;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    /* Texte descriptif centré */
+    .desc-text {
+      flex: 1;                     /* Prend l'espace restant */
+      text-align: center;
+      font-size: 1em;              /* Ajustez la taille de police selon vos préférences */
+    }
+
+    /* Conteneur du lien */
+    .desc-contact {
+      margin-left: 20px;           /* Espace entre le texte descriptif et le lien */
+    }
+
+    /* Style du lien 'Nous contacter' */
+    .desc-contact a {
+      text-decoration: underline;  /* Texte souligné */
+      color: inherit;              /* Optionnel : hérite de la couleur par défaut */
+      cursor: pointer;
+    }
+
+    
+    #accessibilityChart,
+    #accessibilityPieChart {
+      width: 100%;
+      height: 100%;
+    }
+    #map-container {
+      background-color: #006400;
+      padding: 5px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      position: relative;
+    }
+    #map {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+    }
+    /* Conteneur description global */
+    #description {
+      margin: 10px 20px;           /* Vous pouvez modifier les marges pour réduire l'espace */
+      padding: 10px;               /* Réduisez le padding si nécessaire */
+      background-color: #f5f5f5;
+      display: flex;
+      flex-direction: row;         /* Par défaut, deux colonnes côte à côte */
+      justify-content: space-between; /* Répartit l'espace entre les blocs */
+      align-items: center;
+      box-sizing: border-box;
+      height: auto;                /* Laisser la hauteur s'adapter au contenu, ou fixer une hauteur si besoin */
+    }
+
     @media (max-width: 768px) {
-      .titre { font-size: 1.5em; }
+      .titre {  font-size: 1.5em; }
       .bandeau { height: auto; flex-direction: column; align-items: center; }
-      .bandeau-left { position: static; font-size: 0.9em; margin-bottom: 10px; }
-      .container { flex-direction: column; }
-      .indicateurs, #map-container { width: 100%; }
+      .bandeau-left {  position: static; font-size: 0.9em; margin-bottom: 10px; }
+      .container { flex-direction: column; height: 100vh; }
+      .indicateurs {
+        height: 35vh;           /* 35% de la hauteur de l'écran */
+        overflow-y: auto;       /* Permet le défilement en cas de contenu excessif */
+        width: 100%;
+      }
+
+      /* Pour le conteneur de la carte et boutons */
+      .map-buttons-container {
+        height: 65vh;           /* 65% de la hauteur de l'écran */
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      /* À l'intérieur du conteneur map-buttons-container, 
+        la carte prend le maximum d'espace restant et 
+        le conteneur des boutons définit une hauteur fixe */
+      #map-container {
+        flex: 1;                /* Occupe l'espace disponible */
+        min-height: 250px;      /* Garantie une hauteur minimale pour la carte */
+      }
+      
+      .button-container {
+        height: 60px;           /* Hauteur fixe pour le conteneur des boutons */
+      }
     }
     @media (max-width: 480px) {
       .titre { font-size: 1.2em; }
       .bandeau { height: auto; text-align: center; }
       .bandeau-left { font-size: 0.8em; }
       .indicator-item { height: 200px; }
+      .indicateurs {
+        max-height: 40vh;
+        overflow-y: auto;
+      }
+      .map-buttons-container {
+        height: 60vh;
+        display: flex;
+        flex-direction: column;
+      }
     }
-
-    .button-container {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.8);
-      padding: 5px 10px;
-      border-radius: 5px;
+    @media (max-width: 768px) {
+      #description {
+        flex-direction: column;    /* Passe en colonne sur petit écran */
+        text-align: center;
+      }
+      
+      .desc-contact {
+        margin-left: 0;
+        margin-top: 10px;          /* Ajoute un espace vertical entre les deux blocs */
+      }
     }
+ 
+    
   </style>
 </head>
 <body>
@@ -150,7 +236,7 @@
 
   <!-- Conteneur principal -->
   <div class="container">
-    <!-- Cadre pour les indicateurs accessibilité -->
+    <!-- Conteneur indicateurs (gauche) -->
     <div class="indicateurs">
       <div class="indicateurs-title">Indicateurs accessibilité</div>
       <div class="indicator-item">
@@ -160,11 +246,16 @@
         <canvas id="accessibilityPieChart"></canvas>
       </div>
     </div>
-    <!-- Conteneur pour la carte -->
-    <div id="map-container">
-      <div id="map"></div>
-      <button class="home-button" onclick="goHome()">Accueil</button>
-      <!-- Conteneur des boutons en overlay -->
+
+    <!-- Conteneur regroupant la carte et les boutons (droite) -->
+    <div class="map-buttons-container">
+      <!-- Conteneur de la carte -->
+      <div id="map-container">
+        <div id="map"></div>
+        <button class="home-button" onclick="goHome()">Accueil</button>
+        <button class="legend-button" onclick="showLegend()">Légende</button>
+      </div>
+      <!-- Conteneur des boutons placé juste en dessous de la carte -->
       <div class="button-container">
         <button class="toggle-button" id="toggle-wms-quartier">Accessibilité par quartier</button>
         <button class="toggle-button" id="toggle-wms-troncon">Tronçon d'accessibilité</button>
@@ -176,11 +267,15 @@
     </div>
   </div>
 
-  <!-- Texte explicatif -->
-  <div id="description">
-    <p>Cette carte affiche les indicateurs récupérés depuis le WMS sous forme de couches.</p>
+  <!-- Conteneur description -->
+<div id="description">
+  <div class="desc-text">
+    Application développer par la société LONA pour le compte de l'agglomération de Losse en Gelaisse
   </div>
-
+  <div class="desc-contact">
+    <a href="/contact">Contact</a>
+  </div>
+</div>
   <!-- Scripts pour OpenLayers et Chart.js -->
   <script type="text/javascript">
     // Variables globales pour stocker les instances Chart
@@ -602,6 +697,45 @@
         })
         .catch(error => console.error('Erreur lors de la récupération des données:', error));
     });
+    // Tableau global pour lister les couches et leurs identifiants pour la légende
+    const legendLayers = [
+      { layer: wmsLayerQuartier, name: 'vm_iris_indicateur', title: 'Quartiers' },
+      { layer: wmsLayerTroncon, name: 'troncon_cheminement', title: 'Tronçon cheminement' },
+      { layer: wmsLayerLignebus, name: 'ligne', title: 'Ligne bus' },
+      { layer: wmsLayerArretbus, name: 'arret', title: 'Arrêt bus' },
+      { layer: wmsLayerErp, name: 'erp', title: 'ERP' },
+      { layer: wmsLayerStationnementpmr, name: 'stationnement_pmr', title: 'Stationnement PMR' },
+      { layer: wmsLayerTravaux, name: 'travaux', title: 'Travaux' }
+    ];
+
+    // La fonction qui affiche la légende dans une popup
+    function showLegend() {
+      let content = '<h3>Légende</h3>';
+      
+      // Pour chaque couche, si elle est visible, construire l'image de la légende
+      legendLayers.forEach(item => {
+        if (item.layer.getVisible()) {
+          // Construction de l'URL pour récupérer la légende via GetLegendGraphic de Geoserver
+          let legendUrl = 'http://localhost:8085/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&LAYER=' + item.name;
+          content += '<div style="margin-bottom:10px;">';
+          content += '<strong>' + item.title + ':</strong><br>';
+          content += '<img src="' + legendUrl + '" alt="Légende ' + item.title + '">';
+          content += '</div>';
+        }
+      });
+      
+      if (content === '<h3>Légende</h3>') {
+        content += 'Aucune couche visible pour afficher la légende.';
+      }
+      
+      // Utiliser la popup existante (celle créée précédemment)
+      popup.innerHTML = content;
+      // Positionnement de la popup — ici on centre horizontalement en haut de l'écran
+      popup.style.left = '50%';
+      popup.style.top = '20%';  // Vous pouvez ajuster cette valeur pour mieux positionner la popup
+      popup.style.transform = 'translateX(-50%)';
+      popup.style.display = 'block';
+    }
   </script>
 </body>
 </html>
