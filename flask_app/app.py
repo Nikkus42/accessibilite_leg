@@ -1,6 +1,6 @@
 from flask import Flask, render_template, jsonify, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import create_engine, Table, Column, Integer, String, Boolean, Date, MetaData
+from sqlalchemy import create_engine, Table, Column, Integer, String, Boolean, Date, MetaData, text
 from sqlalchemy.orm import sessionmaker
 from urllib.parse import quote_plus
 from datetime import date
@@ -19,23 +19,31 @@ print("AUTH_POSTGRES_PORT:", os.getenv('AUTH_POSTGRES_PORT'))
 
 app = Flask(__name__)
 
+
+
+# On encode le mot de passe pour la base access_leg_db car caractère spéciaux dans le mot de passe
+postgres_password_quoted = quote_plus(os.getenv('POSTGRES_PASSWORD'))
+
 # Configuration pour la base de données access_leg_db
 app.config['SQLALCHEMY_DATABASE_URI_ACCESS_LEG'] = (
-    f"postgresql+psycopg2://{os.getenv('POSTGRES_USER')}:{os.getenv('POSTGRES_PASSWORD')}"
-    f"@{os.getenv('POSTGRES_HOST')}:{os.getenv('POSTGRES_PORT')}/{os.getenv('POSTGRES_DB')}"
+    f"postgresql+psycopg2://{os.getenv('POSTGRES_USER')}:{postgres_password_quoted}"
+    f"@{os.getenv('POSTGRES_HOST')}:5432/{os.getenv('POSTGRES_DB')}"
 )
-# On encode le mot de passe pour la base authent_leg
-auth_postgres_password = quote_plus(os.getenv('AUTH_POSTGRES_PASSWORD'))
+
+# On encode le mot de passe pour la base authent_leg car caractère spéciaux dans le mot de passe
+auth_postgres_password_quoted = quote_plus(os.getenv('AUTH_POSTGRES_PASSWORD'))
+
 
 # Configuration pour la base de données authent_leg_db
 app.config['SQLALCHEMY_DATABASE_URI_AUTHENT_LEG'] = (
-    f"postgresql+psycopg2://{os.getenv('AUTH_POSTGRES_USER')}:{auth_postgres_password}"
+    f"postgresql+psycopg2://{os.getenv('AUTH_POSTGRES_USER')}:{auth_postgres_password_quoted}"
     f"@{os.getenv('AUTH_POSTGRES_HOST')}:5432/{os.getenv('AUTH_POSTGRES_DB')}"
 )
-#{os.getenv('AUTH_POSTGRES_PORT')} variable initial mais avec le port par défaut ça fonctionne
 
 # Ajout du print ici pour vérifier l'URI générée
+print("URI ACCESS_LEG :", app.config['SQLALCHEMY_DATABASE_URI_ACCESS_LEG'])
 print("URI AUTHENT_LEG :", app.config['SQLALCHEMY_DATABASE_URI_AUTHENT_LEG'])
+
 
 # Initialisation des connexions aux bases de données
 engine_access_leg = create_engine(app.config['SQLALCHEMY_DATABASE_URI_ACCESS_LEG'])
@@ -257,30 +265,25 @@ def modif_pwd():
         </script>
     """
 
+@app.route('/get_accessibility_data')
+def get_accessibility_data():
+    with engine_access_leg.connect() as connection:
+        query = text("SELECT lg_accessible, lg_access_moy, lg_non_access, pourcent_access, pourcent_access_moy, pourcent_non_access FROM limite_admin.vm_commune_access")
+        result = connection.execute(query).fetchone()
 
-
-
-# Créer des sessions pour interagir avec les bases de données
-#SessionAccessLeg = sessionmaker(bind=engine_access_leg)
-#SessionAuthentLeg = sessionmaker(bind=engine_authent_leg)
-
-#@app.route('/data_from_access_leg')
-#def data_from_access_leg():
-#    session = SessionAccessLeg()
-#    # Exécutez vos requêtes ici
-#    result = session.execute("SELECT * FROM your_table")
-#    data = result.fetchall()
-#    session.close()
-#    return str(data)
-
-#@app.route('/data_from_authent_leg')
-#def data_from_authent_leg():
-#    session = SessionAuthentLeg()
-    # Exécutez vos requêtes ici
-#    result = session.execute("SELECT * FROM your_auth_table")
-#    data = result.fetchall()
-#    session.close()
-#    return str(data)
+        if result:
+            data = {
+                'lg_accessible': result[0],  # Utilisez des indices entiers
+                'lg_access_moy': result[1],
+                'lg_non_access': result[2],
+                'pourcent_access': result[3],
+                'pourcent_access_moy': result[4],
+                'pourcent_non_access': result[5]
+            }
+            return jsonify(data)
+        else:
+            return jsonify({'error': 'No data found'}), 404
+        
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
