@@ -4,111 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Création d'un nouveau compte</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0fff0; /* Vert très pâle */
-            padding: 10px; /* Ajout pour éviter que le contenu touche les bords */
-            box-sizing: border-box;
-        }
-        .form-container {
-            background-color: #98FB98; /* Vert pâle */
-            border: 2px solid #006400; /* Vert foncé */
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: max-content; /* Largeur ajustée automatiquement */
-            max-width: 100%; /* Limite la largeur à l'écran */
-            box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur totale */
-        }
-        .form-container h1 {
-            color: #006400; /* Vert foncé */
-            text-align: center;
-            white-space: normal; /* Permet au texte de se diviser en plusieurs lignes */
-            word-wrap: break-word; /* Coupe le texte au besoin pour éviter les débordements */
-            margin-bottom: 20px;
-            font-size: 2em; /* Ajustement pour adaptabilité */
-        }
-        .form-container input[type="text"],
-        .form-container input[type="password"] {
-            width: 100%; 
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #006400;
-            border-radius: 5px;
-            box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur totale */
-        }
-        .form-container button {
-            background-color: #006400;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-            box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur totale */
-        }
-        .form-container button:hover {
-            background-color: #004d00;
-        }
-
-        /* Media queries pour écrans moyens */
-        @media (max-width: 768px) {
-            .form-container h1 {
-                font-size: 1.5em; /* Réduction de la taille du texte */
-            }
-        }
-
-        /* Media queries pour écrans petits */
-        @media (max-width: 480px) {
-            .form-container h1 {
-                font-size: 1.2em; /* Réduction supplémentaire de la taille du texte */
-                word-wrap: break-word; /* Coupe le texte au besoin */
-            }
-            .form-container input[type="text"],
-            .form-container input[type="password"] {
-                font-size: 0.9em; /* Ajustement de la taille de la police */
-            }
-        }
-    </style>
-    <script>
-        function validateForm() {
-            const emailInput = document.getElementById("email").value;
-            const pwdInput = document.getElementById("pwd").value;
-            const pwdConfirmInput = document.getElementById("pwdConfirm").value;
-
-            // Vérifier le format de l'adresse e-mail
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(emailInput)) {
-                alert("Adresse incorrecte, renseignez à nouveau");
-                return false;
-            }
-
-            // Vérifier que les mots de passe sont identiques
-            if (pwdInput !== pwdConfirmInput) {
-                alert("Mots de passe différents, recommencez");
-                return false;
-            }
-
-            return true;
-        }
-    </script>
+    <!-- Inclusion de la feuille de styles globale -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
-<body>
+<body class="logging-new-page">
     <div class="form-container">
         <h1>Création d'un nouveau compte</h1>
-        <form action="/create_user" method="POST" onsubmit="return validateForm()">
+        <!-- Ajout d'un id sur le formulaire pour pouvoir y attacher un écouteur dans le JS -->
+        <form action="/create_user" method="POST" id="register-form">
             <input type="text" id="email" name="email" placeholder="Indiquer votre identifiant (adresse mail)" required>
             <input type="password" id="pwd" name="password" placeholder="Indiquer votre mot de passe" required>
             <input type="password" id="pwdConfirm" name="password_confirm" placeholder="Répéter votre mot de passe" required>
-            <button type="submit">Envoyer</button>
+            <button type="submit" id="register-button">Envoyer</button>
         </form>
     </div>
+    <!-- Inclusion du script JavaScript global -->
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 </body>
 </html>
-

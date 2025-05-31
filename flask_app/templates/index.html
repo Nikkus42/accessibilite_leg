@@ -4,75 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Présentation de Losse en Gelaisse</title>
-    <style>
-        body {
-            font-family: 'Cursive', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .titre {
-            text-align: center;
-            font-size: 2.5em;
-            color: #006400; /* Vert foncé */
-            text-shadow: 2px 2px #98FB98; /* Ombre verte */
-            margin-top: 20px;
-        }
-        .bandeau {
-            background-color: #90EE90; /* Vert clair */
-            height: 20vh; /* Hauteur réduite */
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            flex-wrap: wrap; /* Permet à la bandeau de s'adapter aux petits écrans */
-        }
-        .rubrique {
-            padding: 10px;
-            cursor: pointer;
-        }
-        .rubrique:hover {
-            background-color: #77dd77;
-        }
-        .rubrique a {
-            text-decoration: none;
-            color: inherit;
-        }
-        .image-presentation {
-            width: 100%;
-            height: auto;
-            display: block;
-            margin-top: 20px;
-        }
-
-        /* Media queries pour les écrans de taille moyenne */
-        @media (max-width: 768px) {
-            .titre {
-                font-size: 2em; /* Taille réduite du texte */
-            }
-            .bandeau {
-                height: auto; /* Ajuste la hauteur */
-            }
-            .rubrique {
-                padding: 10px 5px; /* Réduction du padding */
-            }
-        }
-
-        /* Media queries pour les petits écrans */
-        @media (max-width: 480px) {
-            .titre {
-                font-size: 1.5em; /* Réduction supplémentaire du texte */
-            }
-            .bandeau {
-                flex-direction: column; /* Réarrangement vertical pour les rubriques */
-                height: auto;
-                text-align: center;
-            }
-            .rubrique {
-                padding: 5px; /* Réduction du padding pour les petits écrans */
-            }
-        }
-    </style>
+    <!-- Inclusion de la feuille de styles personnalisée -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
-<body>
+<body class="index-page">
     <h1 class="titre">Bienvenue à l'Agglomération de Losse en Gelaisse</h1>
     <div class="bandeau">
         <div class="rubrique">Accueil</div>
@@ -80,6 +15,10 @@
         <div class="rubrique">Services</div>
         <div class="rubrique"><a href="logging.html">Accessibilité</a></div>
     </div>
-    <img src="static\image\presentation_leg.jpeg" alt="Présentation de Losse en Gelaisse" class="image-presentation">
+    <!-- Référence à l'image via url_for pour être compatible avec Flask -->
+    <img src="{{ url_for('static', filename='image/presentation_leg.jpeg') }}" alt="Présentation de Losse en Gelaisse" class="image-presentation">
+    
+    <!-- Inclusion du script JavaScript personnalisé -->
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 </body>
 </html>

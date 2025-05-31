@@ -1,0 +1,531 @@
+/* ====================================== */
+/* Styles communs (appliqués à toutes pages) */
+/* ====================================== */
+
+body {
+    font-family: 'Cursive', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Styles globaux pour les popups (commun à toutes pages) */
+.popup {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border: 1px solid black;
+  padding: 10px;
+  z-index: 1001;
+}
+
+/* ====================================== */
+/* Styles pour l'index (page d'entrée)   */
+/* ====================================== */
+
+.index-page {
+    /* Pour index, on ne force pas le display:flex ni la hauteur 100vh (comme c’était dans votre version d'origine) */
+}
+.index-page .titre {
+    text-align: center;
+    font-size: 2.5em;
+    color: #006400; /* Vert foncé */
+    text-shadow: 2px 2px #98FB98; /* Ombre verte */
+    margin-top: 20px;
+}
+.index-page .bandeau {
+    background-color: #90EE90; /* Vert clair */
+    height: 20vh; /* Hauteur comme dans votre version initiale */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Permet l'adaptation aux petits écrans */
+}
+.index-page .rubrique {
+    padding: 10px;
+    cursor: pointer;
+}
+.index-page .rubrique:hover {
+    background-color: #77dd77;
+}
+.index-page .rubrique a {
+    text-decoration: none;
+    color: inherit;
+}
+.index-page .image-presentation {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 20px;
+}
+
+/* Media queries pour la page index */
+@media (max-width: 768px) {
+    .index-page .titre {
+        font-size: 2em;
+    }
+    .index-page .bandeau {
+        height: auto;
+    }
+    .index-page .rubrique {
+        padding: 10px 5px;
+    }
+}
+@media (max-width: 480px) {
+    .index-page .titre {
+        font-size: 1.5em;
+    }
+    .index-page .bandeau {
+        flex-direction: column;
+        height: auto;
+        text-align: center;
+    }
+    .index-page .rubrique {
+        padding: 5px;
+    }
+}
+
+/* ====================================== */
+/* Styles pour la cartographie (cartographie_interne.html) */
+/* ====================================== */
+
+.carto-page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.carto-page .bandeau {
+  background-color: #90EE90;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  position: relative;
+}
+.carto-page .bandeau-left {
+  position: absolute;
+  left: 20px;
+  font-size: 1em;
+  color: black;
+}
+.carto-page .bandeau-left a {
+  text-decoration: underline;
+  color: inherit;
+}
+.carto-page .titre {
+  font-size: 2em;
+  color: black;
+}
+.carto-page .container {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+.carto-page .indicateurs {
+  width: 25%;
+  background-color: #f5f5f5;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+.carto-page .map-buttons-container {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+.carto-page .indicateurs-title {
+  font-size: 1.5em;
+  color: #006400;
+  text-shadow: 2px 2px #98FB98;
+  margin-bottom: 20px;
+}
+.carto-page .indicator-item {
+  width: 100%;
+  height: 300px;
+  margin-bottom: 20px;
+}
+.carto-page .button-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background: #90EE90;
+  padding: 2px;
+  box-sizing: border-box;
+}
+.carto-page .toggle-button {
+  margin: 2px;
+  padding: 4px 8px;
+  font-size: 12px;
+  background-color: #006400;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.carto-page .toggle-button:hover {
+  background-color: #004d00;
+}
+.carto-page .home-button {
+  position: absolute;
+  top: 18px;
+  left: 50px;
+  z-index: 1000;
+  background-color: rgb(230,228,228);
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.carto-page .legend-button {
+  position: absolute;
+  top: 18px;
+  right: 10px;
+  z-index: 1000;
+  background-color: rgb(230,228,228);
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.carto-page .itineraire-toggle-button {
+  position: absolute;
+  top: 18px;
+  right: 150px;
+  z-index: 1000;
+  background-color: rgb(230,228,228);
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.carto-page .desc-text {
+  flex: 1;
+  text-align: center;
+  font-size: 1em;
+}
+.carto-page .desc-contact {
+  margin-left: 20px;
+}
+.carto-page .desc-contact a {
+  text-decoration: underline;
+  color: inherit;
+  cursor: pointer;
+}
+
+.carto-page #accessibilityChart,
+.carto-page #accessibilityPieChart {
+  width: 100%;
+  height: 100%;
+}
+.carto-page #map-container {
+  background-color: #006400;
+  padding: 5px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+.carto-page #map {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+}
+.carto-page #description {
+  margin: 10px 20px;
+  padding: 10px;
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  height: auto;
+}
+
+/* Media queries pour la cartographie */
+@media (max-width: 768px) {
+  .carto-page .titre {  font-size: 1.5em; }
+  .carto-page .bandeau { height: auto; flex-direction: column; align-items: center; }
+  .carto-page .bandeau-left {  position: static; font-size: 0.9em; margin-bottom: 10px; }
+  .carto-page .container { flex-direction: column; height: 100vh; }
+  .carto-page .indicateurs {
+    height: 35vh;
+    overflow-y: auto;
+    width: 100%;
+  }
+  .carto-page .map-buttons-container {
+    height: 65vh;
+    flex-direction: column;
+    width: 100%;
+  }
+  .carto-page #map-container {
+    flex: 1;
+    min-height: 250px;
+  }
+  .carto-page .button-container {
+    height: 60px;
+  }
+  .carto-page #description {
+    flex-direction: column;
+    text-align: center;
+  }
+  .carto-page .desc-contact {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
+@media (max-width: 480px) {
+  .carto-page .titre { font-size: 1.2em; }
+  .carto-page .bandeau { height: auto; text-align: center; }
+  .carto-page .bandeau-left { font-size: 0.8em; }
+  .carto-page .indicator-item { height: 200px; }
+  .carto-page .indicateurs {
+    max-height: 40vh;
+    overflow-y: auto;
+  }
+  .carto-page .map-buttons-container {
+    height: 60vh;
+    flex-direction: column;
+  }
+}
+
+/* ================================ */
+/* Styles spécifiques à logging.html */
+/* ================================ */
+
+.logging-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0fff0; /* Vert très pâle */
+    padding: 10px; /* Évite que le contenu touche les bords sur petits écrans */
+    box-sizing: border-box;
+}
+.logging-page .form-container {
+    background-color: #98FB98; /* Vert pâle */
+    border: 2px solid #006400; /* Vert foncé */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: max-content; /* Largeur ajustée automatiquement */
+    max-width: 100%;
+    box-sizing: border-box;
+}
+.logging-page .form-container h1 {
+    color: #006400; /* Vert foncé */
+    text-align: center;
+    white-space: normal;
+    word-wrap: break-word;
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+.logging-page .form-container input[type="text"],
+.logging-page .form-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #006400;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.logging-page .form-container button {
+    background-color: #006400;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+}
+.logging-page .form-container button:hover {
+    background-color: #004d00;
+}
+.logging-page .form-container .new-user {
+    text-align: center;
+    margin-top: 20px;
+}
+.logging-page .form-container .new-user a {
+    color: #006400; /* Vert foncé */
+    text-decoration: underline;
+}
+.logging-page .form-container .new-user a:hover {
+    color: #004d00;
+}
+
+/* Adaptation pour les petits écrans */
+@media (max-width: 768px) {
+    .logging-page .form-container h1 {
+        font-size: 1.5em;
+    }
+}
+@media (max-width: 480px) {
+    .logging-page .form-container h1 {
+        font-size: 1.2em;
+        word-wrap: break-word;
+    }
+    .logging-page .form-container input[type="text"],
+    .logging-page .form-container input[type="password"] {
+        font-size: 0.9em;
+    }
+}
+
+
+/* ====================================== */
+/* Styles spécifiques à logging_new.html  */
+/* (Création d'un nouveau compte)           */
+/* ====================================== */
+
+.logging-new-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0fff0; /* Vert très pâle */
+    padding: 10px; /* Ajout pour éviter que le contenu touche les bords */
+    box-sizing: border-box;
+}
+
+.logging-new-page .form-container {
+    background-color: #98FB98; /* Vert pâle */
+    border: 2px solid #006400; /* Vert foncé */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: max-content; /* Largeur ajustée automatiquement */
+    max-width: 100%; /* Limite la largeur à l'écran */
+    box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur totale */
+}
+
+.logging-new-page .form-container h1 {
+    color: #006400; /* Vert foncé */
+    text-align: center;
+    white-space: normal; /* Permet au texte de se diviser en plusieurs lignes */
+    word-wrap: break-word; /* Coupe le texte au besoin pour éviter les débordements */
+    margin-bottom: 20px;
+    font-size: 2em; /* Ajustement pour adaptabilité */
+}
+
+.logging-new-page .form-container input[type="text"],
+.logging-new-page .form-container input[type="password"] {
+    width: 100%; 
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #006400;
+    border-radius: 5px;
+    box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur totale */
+}
+
+.logging-new-page .form-container button {
+    background-color: #006400;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur totale */
+}
+
+.logging-new-page .form-container button:hover {
+    background-color: #004d00;
+}
+
+/* Media queries pour écrans moyens */
+@media (max-width: 768px) {
+    .logging-new-page .form-container h1 {
+        font-size: 1.5em; /* Réduction de la taille du texte */
+    }
+}
+
+/* Media queries pour écrans petits */
+@media (max-width: 480px) {
+    .logging-new-page .form-container h1 {
+        font-size: 1.2em; /* Réduction supplémentaire de la taille du texte */
+        word-wrap: break-word; /* Coupe le texte au besoin */
+    }
+    .logging-new-page .form-container input[type="text"],
+    .logging-new-page .form-container input[type="password"] {
+        font-size: 0.9em; /* Ajustement de la taille de la police */
+    }
+}
+
+
+/* ====================================== */
+/* Styles spécifiques à logging_modif_pwd.html */
+/* (Modification de mot de passe)             */
+/* ====================================== */
+
+.logging-modif-pwd-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0fff0; /* Vert très pâle */
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.logging-modif-pwd-page .form-container {
+    background-color: #98FB98; /* Vert pâle */
+    border: 2px solid #006400; /* Vert foncé */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: max-content;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.logging-modif-pwd-page .form-container h1 {
+    color: #006400; /* Vert foncé */
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2em; /* Ajustement pour adaptabilité */
+}
+
+.logging-modif-pwd-page .form-container input[type="text"],
+.logging-modif-pwd-page .form-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #006400;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.logging-modif-pwd-page .form-container button {
+    background-color: #006400;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.logging-modif-pwd-page .form-container button:hover {
+    background-color: #004d00;
+}
+
+/* Media queries pour petits écrans */
+@media (max-width: 768px) {
+    .logging-modif-pwd-page .form-container h1 {
+        font-size: 1.5em;
+    }
+}
+@media (max-width: 480px) {
+    .logging-modif-pwd-page .form-container h1 {
+        font-size: 1.2em;
+    }
+    .logging-modif-pwd-page .form-container input[type="text"],
+    .logging-modif-pwd-page .form-container input[type="password"] {
+        font-size: 0.9em;
+    }
+}
+

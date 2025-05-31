@@ -7,6 +7,9 @@ WORKDIR /app
 # Copier les fichiers de l'application dans le conteneur
 COPY . /app
 
+#crée le dossier logs
+RUN mkdir -p /app/logs
+
 # Installer les dépendances
 RUN pip install --no-cache-dir -r requirements.txt
 

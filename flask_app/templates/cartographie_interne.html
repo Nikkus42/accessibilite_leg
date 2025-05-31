@@ -4,229 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Accessibilité LEG</title>
+  <!-- Inclusion de la feuille de styles personnalisée -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <!-- Librairie OpenLayers -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@7.3.0/ol.css">
   <script src="https://cdn.jsdelivr.net/npm/ol@7.3.0/dist/ol.js"></script>
+  <!-- Librairie Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>
-    body {
-      font-family: 'Cursive', sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
-    }
-    .bandeau {
-      background-color: #90EE90;
-      height: 10vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 20px;
-      position: relative;
-    }
-    .bandeau-left {
-      position: absolute;
-      left: 20px;
-      font-size: 1em;
-      color: black;
-    }
-    .bandeau-left a {
-      text-decoration: underline;
-      color: inherit;
-    }
-    .titre {
-      font-size: 2em;
-      color: black;
-    }
-    .container {
-      display: flex;
-      flex: 1;
-      overflow: hidden;
-    }
-    .indicateurs {
-      width: 25%;
-      background-color: #f5f5f5;
-      padding: 20px;
-      box-sizing: border-box;
-      overflow-y: auto;
-    }
-    /* Nouvelle colonne pour la carte et le conteneur de bouton */
-    .map-buttons-container {
-      width: 75%;
-      display: flex;
-      flex-direction: column;
-      /* Vous pouvez ajouter une marge ou gap si vous le souhaitez */
-      box-sizing: border-box;
-    }
-    .indicateurs-title {
-      font-size: 1.5em;
-      color: #006400;
-      text-shadow: 2px 2px #98FB98;
-      margin-bottom: 20px;
-    }
-    .indicator-item {
-      width: 100%;
-      height: 300px;
-      margin-bottom: 20px;
-    }
-    .button-container {
-      width: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      background: #90EE90;
-      padding: 2px;
-      box-sizing: border-box;
-    }
-    .toggle-button {
-      margin: 2px;
-      padding: 4px 8px;
-      font-size: 12px;
-      background-color: #006400;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .toggle-button:hover {
-      background-color: #004d00;
-    }
-    .home-button {
-      position: absolute;
-      top: 18px;
-      left: 50px;
-      z-index: 1000;
-      background-color: rgb(230, 228, 228);
-      border: 1px solid #ccc;
-      padding: 5px 10px;
-      cursor: pointer;
-    }
-    .legend-button {
-      position: absolute;
-      top: 18px;
-      right: 10px;
-      z-index: 1000;
-      background-color: rgb(230, 228, 228);
-      border: 1px solid #ccc;
-      padding: 5px 10px;
-      cursor: pointer;
-    }
-    /* Texte descriptif centré */
-    .desc-text {
-      flex: 1;                     /* Prend l'espace restant */
-      text-align: center;
-      font-size: 1em;              /* Ajustez la taille de police selon vos préférences */
-    }
-
-    /* Conteneur du lien */
-    .desc-contact {
-      margin-left: 20px;           /* Espace entre le texte descriptif et le lien */
-    }
-
-    /* Style du lien 'Nous contacter' */
-    .desc-contact a {
-      text-decoration: underline;  /* Texte souligné */
-      color: inherit;              /* Optionnel : hérite de la couleur par défaut */
-      cursor: pointer;
-    }
-
-    
-    #accessibilityChart,
-    #accessibilityPieChart {
-      width: 100%;
-      height: 100%;
-    }
-    #map-container {
-      background-color: #006400;
-      padding: 5px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      position: relative;
-    }
-    #map {
-      flex: 1;
-      width: 100%;
-      height: 100%;
-    }
-    /* Conteneur description global */
-    #description {
-      margin: 10px 20px;           /* Vous pouvez modifier les marges pour réduire l'espace */
-      padding: 10px;               /* Réduisez le padding si nécessaire */
-      background-color: #f5f5f5;
-      display: flex;
-      flex-direction: row;         /* Par défaut, deux colonnes côte à côte */
-      justify-content: space-between; /* Répartit l'espace entre les blocs */
-      align-items: center;
-      box-sizing: border-box;
-      height: auto;                /* Laisser la hauteur s'adapter au contenu, ou fixer une hauteur si besoin */
-    }
-
-    @media (max-width: 768px) {
-      .titre {  font-size: 1.5em; }
-      .bandeau { height: auto; flex-direction: column; align-items: center; }
-      .bandeau-left {  position: static; font-size: 0.9em; margin-bottom: 10px; }
-      .container { flex-direction: column; height: 100vh; }
-      .indicateurs {
-        height: 35vh;           /* 35% de la hauteur de l'écran */
-        overflow-y: auto;       /* Permet le défilement en cas de contenu excessif */
-        width: 100%;
-      }
-
-      /* Pour le conteneur de la carte et boutons */
-      .map-buttons-container {
-        height: 65vh;           /* 65% de la hauteur de l'écran */
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-      }
-
-      /* À l'intérieur du conteneur map-buttons-container, 
-        la carte prend le maximum d'espace restant et 
-        le conteneur des boutons définit une hauteur fixe */
-      #map-container {
-        flex: 1;                /* Occupe l'espace disponible */
-        min-height: 250px;      /* Garantie une hauteur minimale pour la carte */
-      }
-      
-      .button-container {
-        height: 60px;           /* Hauteur fixe pour le conteneur des boutons */
-      }
-    }
-    @media (max-width: 480px) {
-      .titre { font-size: 1.2em; }
-      .bandeau { height: auto; text-align: center; }
-      .bandeau-left { font-size: 0.8em; }
-      .indicator-item { height: 200px; }
-      .indicateurs {
-        max-height: 40vh;
-        overflow-y: auto;
-      }
-      .map-buttons-container {
-        height: 60vh;
-        display: flex;
-        flex-direction: column;
-      }
-    }
-    @media (max-width: 768px) {
-      #description {
-        flex-direction: column;    /* Passe en colonne sur petit écran */
-        text-align: center;
-      }
-      
-      .desc-contact {
-        margin-left: 0;
-        margin-top: 10px;          /* Ajoute un espace vertical entre les deux blocs */
-      }
-    }
- 
-    
-  </style>
 </head>
-<body>
-  <!-- Bandeau de navigation -->
+<body class="carto-page">
+  <!-- conteneur bandeau vert (en haut) -->
   <div class="bandeau">
     <div class="bandeau-left">
       <a href="index">Agglomération LEG</a>
@@ -234,9 +21,9 @@
     <div class="titre"><b>Cartographie sur l'accessibilité de Losse en Gelaisse</b></div>
   </div>
 
-  <!-- Conteneur principal -->
+  <!-- Conteneur principal englobant les conteneurs des indicateurs, de la carte et des boutons sous la carte -->
   <div class="container">
-    <!-- Conteneur indicateurs (gauche) -->
+    <!-- Conteneur indicateurs (partie gauche) -->
     <div class="indicateurs">
       <div class="indicateurs-title">Indicateurs accessibilité</div>
       <div class="indicator-item">
@@ -247,495 +34,76 @@
       </div>
     </div>
 
-    <!-- Conteneur regroupant la carte et les boutons (droite) -->
+    <!-- Conteneur regroupant la carte et les boutons sous la carte (partie droite) -->
     <div class="map-buttons-container">
       <!-- Conteneur de la carte -->
       <div id="map-container">
         <div id="map"></div>
-        <button class="home-button" onclick="goHome()">Accueil</button>
-        <button class="legend-button" onclick="showLegend()">Légende</button>
+        <!-- Bouton pour recentrer la carte sur la vue d'accueil -->
+        <button class="home-button" id="goHomeButton">Accueil</button>
+        <!-- Bouton pour faire apparaitre la légende dynamique -->
+        <button class="legend-button" id="showLegendButton">Légende</button>
+        <!-- Bouton pour afficher/masquer le panneau d'itinéraire -->
+        <button class="itineraire-toggle-button" id="toggleItineraireButton">Itinéraire</button>
+        <!-- Panneau déroulant pour le calcul d'itinéraire (initialement masqué) -->
+        <div id="itineraire-panel" style="
+            position: absolute;
+            top: 100px;
+            right: 10px;
+            width: 300px;
+            background: white;
+            border: 1px solid #ccc;
+            padding: 10px;
+            display: none;    /* Masqué tant que non activé */
+            z-index: 1001;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+          ">
+          <h4>Calcul d'itinéraire</h4>
+          <p style="font-style: italic;">Cliquez sur la carte pour choisir votre point de départ et d'arrivée ou faites une recherche par adresse:</p>
+          <!-- Champ d'adresse de départ avec autocomplétion -->
+          <label for="adresseDepart">Adresse départ :</label>
+          <input type="text" id="adresseDepart" list="suggestionsDepart" style="width: 100%;" />
+          <datalist id="suggestionsDepart"></datalist>
+          <br>
+          <!-- Champ d'adresse d'arrivée avec autocomplétion -->
+          <label for="adresseArrivee">Adresse arrivée :</label>
+          <input type="text" id="adresseArrivee" list="suggestionsArrivee" style="width: 100%;" />
+          <datalist id="suggestionsArrivee"></datalist>
+          <br>
+          <!-- Bouton pour lancer le calcul d'itinéraire à partir des adresses saisies -->
+          <button id="itineraireCalcBtn">Calculer</button>
+          <!-- Bouton pour fermer la popup -->
+          <button id="closeItinerairePanelButton" style="float: right;">Fermer</button>
+        </div>
+        <!-- 4 popups dédiées aux quartiers, légendes, tronçon et itinéraire -->
+        <div id="popup-quartier" class="popup"></div>
+        <div id="popup-troncon" class="popup"></div>
+        <div id="popup-legend" class="popup"></div>
+        <div id="popup-itineraire" class="popup"></div>        
       </div>
       <!-- Conteneur des boutons placé juste en dessous de la carte -->
       <div class="button-container">
         <button class="toggle-button" id="toggle-wms-quartier">Accessibilité par quartier</button>
         <button class="toggle-button" id="toggle-wms-troncon">Tronçon d'accessibilité</button>
-        <button class="toggle-button" id="toggle-transport">Transport</button>
-        <button class="toggle-button" id="toggle-erp">ERP</button>
-        <button class="toggle-button" id="toggle-travaux">Travaux</button>
-        <button class="toggle-button" id="toggle-pmr">PMR</button>
-      </div>
+        <button class="toggle-button" id="toggle-wms-transport">Transport</button>
+        <button class="toggle-button" id="toggle-wms-erp">ERP</button>
+        <button class="toggle-button" id="toggle-wms-travaux">Travaux</button>
+        <button class="toggle-button" id="toggle-wms-pmr">PMR</button>
+      </div>      
     </div>
   </div>
 
-  <!-- Conteneur description -->
-<div id="description">
-  <div class="desc-text">
-    Application développer par la société LONA pour le compte de l'agglomération de Losse en Gelaisse
+  <!-- Conteneur description (en bas) -->
+  <div id="description">
+    <div class="desc-text">
+      Application développée par la société ALON pour le compte de l'agglomération de Losse en Gelaisse
+    </div>
+    <div class="desc-contact">
+      <a href="/contact">Contact</a>
+    </div>
   </div>
-  <div class="desc-contact">
-    <a href="/contact">Contact</a>
-  </div>
-</div>
-  <!-- Scripts pour OpenLayers et Chart.js -->
-  <script type="text/javascript">
-    // Variables globales pour stocker les instances Chart
-    let barChart, pieChart;
-
-    // Initialisation des couches WMS existantes
-    const wmsLayerQuartier = new ol.layer.Image({
-      source: new ol.source.ImageWMS({
-        url: 'http://localhost:8085/geoserver/wms',
-        params: { 'LAYERS': 'vm_iris_indicateur', 'FORMAT': 'image/png' },
-        serverType: 'geoserver'
-      }),
-      opacity: 0.5,
-      visible: true
-    });
-
-    const wmsLayerTroncon = new ol.layer.Image({
-      source: new ol.source.ImageWMS({
-        url: 'http://localhost:8085/geoserver/wms',
-        params: { 'LAYERS': 'troncon_cheminement', 'FORMAT': 'image/png' },
-        serverType: 'geoserver'
-      }),
-      visible: true
-    });
-
-    const wmsLayerLignebus = new ol.layer.Image({
-      source: new ol.source.ImageWMS({
-        url: 'http://localhost:8085/geoserver/wms',
-        params: { 'LAYERS': 'ligne', 'FORMAT': 'image/png' },
-        serverType: 'geoserver'
-      }),
-      visible: false
-    });
-
-    const wmsLayerArretbus = new ol.layer.Image({
-      source: new ol.source.ImageWMS({
-        url: 'http://localhost:8085/geoserver/wms',
-        params: { 'LAYERS': 'arret', 'FORMAT': 'image/png' },
-        serverType: 'geoserver'
-      }),
-      visible: false
-    });
-
-    const wmsLayerErp = new ol.layer.Image({
-      source: new ol.source.ImageWMS({
-        url: 'http://localhost:8085/geoserver/wms',
-        params: { 'LAYERS': 'erp', 'FORMAT': 'image/png' },
-        serverType: 'geoserver'
-      }),
-      visible: false
-    });
-
-    const wmsLayerStationnementpmr = new ol.layer.Image({
-      source: new ol.source.ImageWMS({
-        url: 'http://localhost:8085/geoserver/wms',
-        params: { 'LAYERS': 'stationnement_pmr', 'FORMAT': 'image/png' },
-        serverType: 'geoserver'
-      }),
-      visible: false
-    });
-
-    const wmsLayerTravaux = new ol.layer.Image({
-      source: new ol.source.ImageWMS({
-        url: 'http://localhost:8085/geoserver/wms',
-        params: { 'LAYERS': 'travaux', 'FORMAT': 'image/png' },
-        serverType: 'geoserver'
-      }),
-      visible: false
-    });
-
-    // Initialisation de la carte OpenLayers avec TOUS les couches que l'on souhaite pouvoir basculer
-    const map = new ol.Map({
-      target: 'map',
-      layers: [
-        new ol.layer.Tile({ source: new ol.source.OSM() }),
-        wmsLayerQuartier,
-        wmsLayerTroncon,
-        wmsLayerLignebus,   
-        wmsLayerArretbus,   
-        wmsLayerErp,
-        wmsLayerStationnementpmr,
-        wmsLayerTravaux     
-      ],
-      view: new ol.View({
-        center: ol.proj.fromLonLat([4.8357, 45.7640]),
-        zoom: 12
-      })
-    });
-
-    function goHome() {
-      map.getView().setCenter(ol.proj.fromLonLat([4.8357, 45.7640]));
-      map.getView().setZoom(12);
-    }
-
-    // Création d'un popup
-    const popup = document.createElement('div');
-    popup.id = 'popup';
-    popup.style.position = 'absolute';
-    popup.style.backgroundColor = 'white';
-    popup.style.border = '1px solid black';
-    popup.style.padding = '10px';
-    popup.style.display = 'none';
-    document.body.appendChild(popup);
-
-    // Fonction utilitaire de formatage
-    function formatValue(value, type) {
-      if (type === 'integer') {
-        return Math.round(value);
-      } else if (type === 'percent') {
-        return Math.round(value) + ' %';
-      } else if (type === 'meter') {
-        return Math.round(value) + ' m';
-      } else if (type === 'decimal') {
-        return value.toFixed(2);
-      }
-      return value;
-    }
-
-    // Gestion du clic sur la carte
-    map.on('singleclick', function (evt) {
-      if (wmsLayerQuartier.getVisible()) {
-        const viewResolution = map.getView().getResolution();
-        const coordinate = evt.coordinate;
-        const url = wmsLayerQuartier.getSource().getFeatureInfoUrl(
-          coordinate,
-          viewResolution,
-          'EPSG:3857',
-          { 'INFO_FORMAT': 'application/json' }
-        );
-        if (url) {
-          fetch(url)
-            .then(response => response.json())
-            .then(data => {
-              if (data.features && data.features.length > 0) {
-                const properties = data.features[0].properties;
-                let content = '<b>Quartier :</b><br>';
-                content += `Nom: ${properties['nom_iris']}<br>`;
-                content += `Nombre d'habitants: ${formatValue(properties['population_iris'], 'integer')}<br>`;
-                content += `Accessibilité: ${formatValue(properties['pourcent_access'], 'percent')}<br>`;
-                content += `Accessibilité moyenne: ${formatValue(properties['pourcent_access_moy'], 'percent')}<br>`;
-                content += `Non accessible: ${formatValue(properties['pourcent_non_access'], 'percent')}<br>`;
-                content += `Voie accessible: ${formatValue(properties['lg_accessible'], 'meter')}<br>`;
-                content += `Voie accessibilité moyenne: ${formatValue(properties['lg_access_moy'], 'meter')}<br>`;
-                content += `Voie non accessible: ${formatValue(properties['lg_non_access'], 'meter')}<br>`;
-                content += `Indicateur: ${formatValue(properties['indicateur'], 'decimal')}<br>`;
-                popup.innerHTML = content;
-                popup.style.left = evt.pixel[0] + 'px';
-                popup.style.top = evt.pixel[1] + 'px';
-                popup.style.display = 'block';
-
-                // Mise à jour des graphiques avec les données du quartier cliqué
-                updateCharts(properties);
-              } else {
-                popup.style.display = 'none';
-              }
-            })
-            .catch(err => {
-              console.error('Erreur lors de la récupération des données (Quartier) :', err);
-              popup.style.display = 'none';
-            });
-        }
-      } else if (wmsLayerTroncon.getVisible()) {
-        const viewResolution = map.getView().getResolution();
-        const coordinate = evt.coordinate;
-        const url = wmsLayerTroncon.getSource().getFeatureInfoUrl(
-          coordinate,
-          viewResolution,
-          'EPSG:3857',
-          { 'INFO_FORMAT': 'application/json' }
-        );
-        if (url) {
-          fetch(url)
-            .then(response => response.json())
-            .then(data => {
-              if (data.features && data.features.length > 0) {
-                const properties = data.features[0].properties;
-                let content = '<b>Tronçon cheminement</b><br>';
-                content += `Type: ${properties['typtroncon']}<br>`;
-                content += `Statut de la voie: ${properties['statutvoie']}<br>`;
-                content += `Largeur: ${properties['largeur']} m<br>`;
-                content += `Pente: ${properties['pente']} %<br>`;
-                content += `Dévers: ${properties['devers']} %<br>`;
-                content += `Accessibilité: ${properties['accessibiliteglobale']}<br>`;
-                popup.innerHTML = content;
-                popup.style.left = evt.pixel[0] + 'px';
-                popup.style.top = evt.pixel[1] + 'px';
-                popup.style.display = 'block';
-              } else {
-                popup.style.display = 'none';
-              }
-            })
-            .catch(err => {
-              console.error('Erreur lors de la récupération des données (Tronçon) :', err);
-              popup.style.display = 'none';
-            });
-        }
-      } else {
-        popup.style.display = 'none';
-      }
-    });
-
-    // Fonction qui met à jour les graphiques en utilisant les propriétés du quartier cliqué
-    function updateCharts(properties) {
-      if (barChart) {
-        barChart.data.datasets[0].data = [
-          parseFloat((properties['lg_accessible'] / 1000).toFixed(2)), // valeur arrondie à 2 chiffres après la virgule
-          parseFloat((properties['lg_access_moy'] / 1000).toFixed(2)),
-          parseFloat((properties['lg_non_access'] / 1000).toFixed(2))
-        ];
-        barChart.update();
-      }
-      if (pieChart) {
-        pieChart.data.datasets[0].data = [
-          Math.round(properties['pourcent_access']),
-          Math.round(properties['pourcent_access_moy']),
-          Math.round(properties['pourcent_non_access'])
-        ];
-        pieChart.update();
-      }
-    }
-
-    // Gestion des boutons de bascule des couches WMS déjà existants
-    document.getElementById('toggle-wms-quartier').addEventListener('click', function() {
-      const visible = wmsLayerQuartier.getVisible();
-      wmsLayerQuartier.setVisible(!visible);
-    });
-
-    document.getElementById('toggle-wms-troncon').addEventListener('click', function() {
-      const visible = wmsLayerTroncon.getVisible();
-      wmsLayerTroncon.setVisible(!visible);
-    });
-
-    // Gestion des nouveaux boutons
-
-    // Bouton Transport pour wmsLayerArretbus et wmsLayerLignebus
-    document.getElementById('toggle-transport').addEventListener('click', function() {
-      // Si les deux couches sont visibles, on les cache, sinon on les affiche toutes les deux
-      const isVisible = wmsLayerArretbus.getVisible() && wmsLayerLignebus.getVisible();
-      wmsLayerArretbus.setVisible(!isVisible);
-      wmsLayerLignebus.setVisible(!isVisible);
-    });
-
-    // Bouton ERP pour wmsLayerErp
-    document.getElementById('toggle-erp').addEventListener('click', function() {
-      const visible = wmsLayerErp.getVisible();
-      wmsLayerErp.setVisible(!visible);
-    });
-
-    // Bouton Travaux pour wmsLayerTravaux
-    document.getElementById('toggle-travaux').addEventListener('click', function() {
-      const visible = wmsLayerTravaux.getVisible();
-      wmsLayerTravaux.setVisible(!visible);
-    });
-
-    // Bouton PMR pour wmsLayerStationnementpmr
-    document.getElementById('toggle-pmr').addEventListener('click', function() {
-      const visible = wmsLayerStationnementpmr.getVisible();
-      wmsLayerStationnementpmr.setVisible(!visible);
-    });
-
-    window.addEventListener('load', () => {
-      map.updateSize();
-    });
-    window.addEventListener('resize', () => {
-      map.updateSize();
-    });
-
-    // Initialisation des graphiques par défaut à partir des données de la vue matérialisée vm_commune_access
-    document.addEventListener('DOMContentLoaded', function () {
-      fetch('/get_accessibility_data')
-        .then(response => response.json())
-        .then(data => {
-          // Formatage des valeurs pour l'histogramme en km avec 2 chiffres après la virgule
-          const barData = {
-            lg_accessible: parseFloat((data.lg_accessible / 1000).toFixed(2)),
-            lg_access_moy: parseFloat((data.lg_access_moy / 1000).toFixed(2)),
-            lg_non_access: parseFloat((data.lg_non_access / 1000).toFixed(2))
-          };
-
-          // Histogramme
-          const ctx = document.getElementById('accessibilityChart').getContext('2d');
-          barChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-              labels: ['Accessible', 'Accessibilité Moyenne', 'Non Accessible'],
-              datasets: [{
-                label: 'Accessibilité des tronçons',
-                data: [barData.lg_accessible, barData.lg_access_moy, barData.lg_non_access],
-                backgroundColor: ['green', 'yellow', 'red'],
-                borderColor: ['black', 'black', 'black'],
-                borderWidth: 1,
-                minBarLength: 5  // Assure une longueur minimale pour les petites valeurs
-              }]
-            },
-            options: {
-              responsive: true,
-              maintainAspectRatio: false,
-              onResize: function(chart, size) {
-                const newSize = size.width;
-                const fontSize = Math.min(Math.max(newSize / 40, 10), 18);
-                chart.options.plugins.legend.labels.font.size = fontSize;
-              },
-              indexAxis: 'y',
-              scales: {
-                x: { 
-                  beginAtZero: true,
-                  ticks: {
-                    callback: function(value) {
-                      return Number(value).toFixed(2);
-                    }
-                  }
-                }
-              },
-              plugins: {
-                legend: {
-                  display: true,
-                  position: 'bottom',
-                  labels: {
-                    font: { size: 14, weight: 'bold' },
-                    generateLabels: function(chart) {
-                      const data = chart.data;
-                      if (data.labels.length && data.datasets.length) {
-                        return data.labels.map(function(label, i) {
-                          const ds = data.datasets[0];
-                          return {
-                            text: label,
-                            fillStyle: ds.backgroundColor[i],
-                            strokeStyle: ds.borderColor ? ds.borderColor[i] : '#000',
-                            lineWidth: ds.borderWidth,
-                            hidden: false,
-                            index: i
-                          };
-                        });
-                      }
-                      return [];
-                    }
-                  }
-                },
-                tooltip: { enabled: true },
-                title: {
-                  display: true,
-                  text: 'Km de tronçons accessibles',
-                  font: { size: 16, weight: 'bold' }
-                }
-              }
-            }
-          });
-
-          // Camembert
-          const pieData = {
-            pourcent_access: Math.round(data.pourcent_access),
-            pourcent_access_moy: Math.round(data.pourcent_access_moy),
-            pourcent_non_access: Math.round(data.pourcent_non_access)
-          };
-
-          const pieCtx = document.getElementById('accessibilityPieChart').getContext('2d');
-          pieChart = new Chart(pieCtx, {
-            type: 'pie',
-            data: {
-              labels: ['Accessible', 'Accessibilité Moyenne', 'Non Accessible'],
-              datasets: [{
-                data: [pieData.pourcent_access, pieData.pourcent_access_moy, pieData.pourcent_non_access],
-                backgroundColor: ['green', 'yellow', 'red'],
-                borderColor: ['black', 'black', 'black'],
-                borderWidth: 1
-              }]
-            },
-            options: {
-              responsive: true,
-              maintainAspectRatio: false,
-              onResize: function(chart, size) {
-                const newSize = size.width;
-                const fontSize = Math.min(Math.max(newSize / 40, 10), 18);
-                chart.options.plugins.legend.labels.font.size = fontSize;
-              },
-              plugins: {
-                legend: {
-                  display: true,
-                  position: 'bottom',
-                  labels: {
-                    font: { size: 14, weight: 'bold' },
-                    generateLabels: function(chart) {
-                      const data = chart.data;
-                      if (data.labels.length && data.datasets.length) {
-                        return data.labels.map(function(label, i) {
-                          const ds = data.datasets[0];
-                          return {
-                            text: label,
-                            fillStyle: ds.backgroundColor[i],
-                            strokeStyle: ds.borderColor ? ds.borderColor[i] : '#000',
-                            lineWidth: ds.borderWidth,
-                            hidden: false,
-                            index: i
-                          };
-                        });
-                      }
-                      return [];
-                    }
-                  }
-                },
-                tooltip: {
-                  enabled: true,
-                  callbacks: {
-                    label: function(context) {
-                      const label = context.label || '';
-                      const value = context.raw || 0;
-                      return `${label}: ${value}%`;
-                    }
-                  }
-                },
-                title: {
-                  display: true,
-                  text: '% accessibilité',
-                  font: { size: 16, weight: 'bold' }
-                }
-              }
-            }
-          });
-        })
-        .catch(error => console.error('Erreur lors de la récupération des données:', error));
-    });
-    // Tableau global pour lister les couches et leurs identifiants pour la légende
-    const legendLayers = [
-      { layer: wmsLayerQuartier, name: 'vm_iris_indicateur', title: 'Quartiers' },
-      { layer: wmsLayerTroncon, name: 'troncon_cheminement', title: 'Tronçon cheminement' },
-      { layer: wmsLayerLignebus, name: 'ligne', title: 'Ligne bus' },
-      { layer: wmsLayerArretbus, name: 'arret', title: 'Arrêt bus' },
-      { layer: wmsLayerErp, name: 'erp', title: 'ERP' },
-      { layer: wmsLayerStationnementpmr, name: 'stationnement_pmr', title: 'Stationnement PMR' },
-      { layer: wmsLayerTravaux, name: 'travaux', title: 'Travaux' }
-    ];
-
-    // La fonction qui affiche la légende dans une popup
-    function showLegend() {
-      let content = '<h3>Légende</h3>';
-      
-      // Pour chaque couche, si elle est visible, construire l'image de la légende
-      legendLayers.forEach(item => {
-        if (item.layer.getVisible()) {
-          // Construction de l'URL pour récupérer la légende via GetLegendGraphic de Geoserver
-          let legendUrl = 'http://localhost:8085/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&LAYER=' + item.name;
-          content += '<div style="margin-bottom:10px;">';
-          content += '<strong>' + item.title + ':</strong><br>';
-          content += '<img src="' + legendUrl + '" alt="Légende ' + item.title + '">';
-          content += '</div>';
-        }
-      });
-      
-      if (content === '<h3>Légende</h3>') {
-        content += 'Aucune couche visible pour afficher la légende.';
-      }
-      
-      // Utiliser la popup existante (celle créée précédemment)
-      popup.innerHTML = content;
-      // Positionnement de la popup — ici on centre horizontalement en haut de l'écran
-      popup.style.left = '50%';
-      popup.style.top = '20%';  // Vous pouvez ajuster cette valeur pour mieux positionner la popup
-      popup.style.transform = 'translateX(-50%)';
-      popup.style.display = 'block';
-    }
-  </script>
+  
+  <!-- Inclusion du script JavaScript personnalisé -->
+  <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 </body>
 </html>
