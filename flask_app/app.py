@@ -16,6 +16,7 @@ import hashlib
 import logging
 from dotenv import load_dotenv
 import json
+import re
 
 # Chargement des variables d'environnement
 load_dotenv()
@@ -159,6 +160,19 @@ def create_user():
 
     logger.info(f"Tentative de création d'utilisateur : {email}, type : {user_type}")
 
+    # Vérification de la complexité du mot de passe
+    if (len(password) < 12 or 
+        not re.search(r'[A-Z]', password) or 
+        not re.search(r'[a-z]', password) or 
+        not re.search(r'\d', password) or 
+        not re.search(r'[^A-Za-z0-9]', password)):
+        return """
+            <script>
+                alert("Le mot de passe ne respecte pas les règle de sécurité : 12 caractères minimum contenant des lettres majuscules et minuscules des chiffres et des caractères spéciaux");
+                window.location.href = "/logging_new.html";
+            </script>
+        """
+
     try:
         # Hashage SHA-256 répété 10 fois pour l'email
         hashed_email = email
@@ -181,16 +195,15 @@ def create_user():
             ))
 
         logger.info(f"Utilisateur créé avec succès : {email} (type : {user_type})")
+        # Rediriger vers la page de connexion
         return redirect(url_for('success_page'))
 
     except Exception as e:
         logger.error(f"Erreur lors de la création de l'utilisateur {email} : {str(e)}")
         return "Erreur lors de la création de l’utilisateur", 500
 
-    # Rediriger vers la page de connexion (ou une page de confirmation)
-    return redirect(url_for('success_page'))  # Redirige vers une autre route
-
-# Route de confirmation après inscription (par exemple, on retourne sur la page de connexion)
+    
+# Route de confirmation après inscription (on retourne sur la page de connexion)
 @app.route('/success')
 def success_page():
     return render_template('logging.html')
@@ -294,11 +307,33 @@ def modif_pwd():
     new_password = request.form.get('new_password')
     new_password_confirm = request.form.get('new_password_confirm')
 
-    # Vérification que le nouveau mot de passe a été correctement confirmé
+    # Vérification que le nouveau mot de passe a été correctement répété
     if new_password != new_password_confirm:
         return """
             <script>
                 alert("Les nouveaux mots de passe ne correspondent pas");
+                window.location.href = "/logging_modif_pwd";
+            </script>
+        """
+
+    # Vérification que le nouveau mot de passe est différent de l'ancien
+    if new_password == old_password:
+        return """
+            <script>
+                alert("Le nouveau mot de passe est identique à l'ancien. Veuillez le changer");
+                window.location.href = "/logging_modif_pwd";
+            </script>
+        """
+
+    # Vérification de la complexité du nouveau mot de passe
+    if (len(new_password) < 12 or 
+        not re.search(r'[A-Z]', new_password) or 
+        not re.search(r'[a-z]', new_password) or 
+        not re.search(r'\d', new_password) or 
+        not re.search(r'[^A-Za-z0-9]', new_password)):
+        return """
+            <script>
+                alert("Le nouveau mot de passe ne respecte pas les règle de sécurité : 12 caractères minimum contenant des lettres majuscules et minuscules des chiffres et des caractères spéciaux");
                 window.location.href = "/logging_modif_pwd";
             </script>
         """
@@ -350,6 +385,7 @@ def modif_pwd():
         </script>
     """
 
+ 
 @app.route('/get_accessibility_data')
 def get_accessibility_data():
 
