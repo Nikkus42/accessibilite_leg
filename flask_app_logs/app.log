@@ -13180,3 +13180,838 @@ CONTEXT:  SQL function "pgr_dijkstra" statement 1
 2025-06-01 13:37:37,784 - ERROR - Log client à 2025-06-01T13:37:37.776Z : [{}]
 2025-06-01 13:37:37,784 - INFO - Réponse 200 pour POST /client-log en 0.001s
 2025-06-01 13:37:37,784 - INFO - 172.20.0.1 - - [01/Jun/2025 13:37:37] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:56:20,314 - INFO - Chargement des variables d'environnement...
+2025-06-03 14:56:20,317 - INFO - Application Flask initialisée.
+2025-06-03 14:56:20,342 - INFO - Connexion réussie à la base access_leg_db
+2025-06-03 14:56:20,343 - INFO - Connexion réussie à la base authent_leg_db
+2025-06-03 14:56:20,352 - INFO - L'application Flask est sur le point de démarrer.
+2025-06-03 14:56:20,432 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.0.5:5000
+2025-06-03 14:56:20,432 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-03 14:56:20,433 - INFO -  * Restarting with stat
+2025-06-03 14:56:21,236 - INFO - Chargement des variables d'environnement...
+2025-06-03 14:56:21,238 - INFO - Application Flask initialisée.
+2025-06-03 14:56:21,259 - INFO - Connexion réussie à la base access_leg_db
+2025-06-03 14:56:21,260 - INFO - Connexion réussie à la base authent_leg_db
+2025-06-03 14:56:21,267 - INFO - L'application Flask est sur le point de démarrer.
+2025-06-03 14:56:21,282 - WARNING -  * Debugger is active!
+2025-06-03 14:56:21,294 - INFO -  * Debugger PIN: 104-062-237
+2025-06-03 14:57:53,063 - INFO - Nouvelle requête : GET /cartographie_interne depuis 172.20.0.1
+2025-06-03 14:57:53,074 - INFO - Réponse 200 pour GET /cartographie_interne en 0.011s
+2025-06-03 14:57:53,075 - INFO - 172.20.0.1 - - [03/Jun/2025 14:57:53] "GET /cartographie_interne HTTP/1.1" 200 -
+2025-06-03 14:57:53,153 - INFO - Nouvelle requête : GET /static/css/styles.css depuis 172.20.0.1
+2025-06-03 14:57:53,156 - INFO - Nouvelle requête : GET /static/js/scripts.js depuis 172.20.0.1
+2025-06-03 14:57:53,159 - INFO - Réponse 304 pour GET /static/js/scripts.js en 0.003s
+2025-06-03 14:57:53,159 - INFO - Réponse 304 pour GET /static/css/styles.css en 0.006s
+2025-06-03 14:57:53,160 - INFO - 172.20.0.1 - - [03/Jun/2025 14:57:53] "[36mGET /static/js/scripts.js HTTP/1.1[0m" 304 -
+2025-06-03 14:57:53,161 - INFO - 172.20.0.1 - - [03/Jun/2025 14:57:53] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+2025-06-03 14:57:53,264 - INFO - Nouvelle requête : GET /get_accessibility_data depuis 172.20.0.1
+2025-06-03 14:57:53,278 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:57:53,279 - INFO - Log client à 2025-06-03T14:57:53.266Z : ['[INFO] Événement "load" déclenché - Mise à jour de la taille de la carte effectuée']
+2025-06-03 14:57:53,279 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 14:57:53,280 - INFO - 172.20.0.1 - - [03/Jun/2025 14:57:53] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:57:53,336 - INFO - Exécution de la requête get_accessibility_data en 0.072s
+2025-06-03 14:57:53,337 - INFO - Réponse 200 pour GET /get_accessibility_data en 0.073s
+2025-06-03 14:57:53,337 - INFO - 172.20.0.1 - - [03/Jun/2025 14:57:53] "GET /get_accessibility_data HTTP/1.1" 200 -
+2025-06-03 14:57:53,381 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:57:53,382 - INFO - Log client à 2025-06-03T14:57:53.356Z : ["[INFO] Données d'accessibilité récupérées :", {'lg_access_moy': 519164.4964337632, 'lg_accessible': 682222.3422465249, 'lg_non_access': 130978.47311978211, 'pourcent_access': 52, 'pourcent_access_moy': 38, 'pourcent_non_access': 9}]
+2025-06-03 14:57:53,382 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 14:57:53,383 - INFO - 172.20.0.1 - - [03/Jun/2025 14:57:53] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:57:53,423 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:57:53,423 - INFO - Log client à 2025-06-03T14:57:53.390Z : ['[INFO] Histogramme (barChart) initialisé']
+2025-06-03 14:57:53,424 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 14:57:53,424 - INFO - 172.20.0.1 - - [03/Jun/2025 14:57:53] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:57:53,447 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:57:53,447 - INFO - Log client à 2025-06-03T14:57:53.404Z : ['[INFO] Graphique en camembert (pieChart) initialisé']
+2025-06-03 14:57:53,447 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 14:57:53,448 - INFO - 172.20.0.1 - - [03/Jun/2025 14:57:53] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:57:55,577 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:57:55,577 - ERROR - Log client à 2025-06-03T14:57:55.565Z : [{}]
+2025-06-03 14:57:55,578 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 14:57:55,578 - INFO - 172.20.0.1 - - [03/Jun/2025 14:57:55] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:04,491 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:04,491 - INFO - Log client à 2025-06-03T14:58:04.480Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:04,492 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 14:58:04,492 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:04] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:09,716 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:09,717 - INFO - Log client à 2025-06-03T14:58:09.659Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:09,718 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 14:58:09,718 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:09] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:09,753 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:09,753 - INFO - Log client à 2025-06-03T14:58:09.676Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:09,754 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 14:58:09,754 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:09] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:09,773 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:09,774 - INFO - Log client à 2025-06-03T14:58:09.726Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:09,774 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 14:58:09,774 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:09] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:09,823 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:09,824 - INFO - Log client à 2025-06-03T14:58:09.783Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:09,824 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 14:58:09,825 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:09] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:09,826 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:09,826 - INFO - Log client à 2025-06-03T14:58:09.761Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:09,827 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 14:58:09,828 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:09] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:09,837 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:09,838 - INFO - Log client à 2025-06-03T14:58:09.824Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:09,838 - INFO - Réponse 200 pour POST /client-log en 0.002s
+2025-06-03 14:58:09,839 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:09] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:10,107 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:10,107 - INFO - Log client à 2025-06-03T14:58:10.077Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:10,107 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 14:58:10,108 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:10] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:10,131 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:10,131 - INFO - Log client à 2025-06-03T14:58:10.093Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:10,132 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 14:58:10,132 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:10] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:10,157 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:10,157 - INFO - Log client à 2025-06-03T14:58:10.111Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:10,157 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 14:58:10,158 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:10] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:10,180 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:10,181 - INFO - Log client à 2025-06-03T14:58:10.127Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:10,181 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 14:58:10,181 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:10] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:10,206 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:10,206 - INFO - Log client à 2025-06-03T14:58:10.170Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:10,207 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 14:58:10,207 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:10] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:10,280 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:10,281 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:10,282 - INFO - Log client à 2025-06-03T14:58:10.200Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:10,282 - INFO - Log client à 2025-06-03T14:58:10.178Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:10,283 - INFO - Réponse 200 pour POST /client-log en 0.002s
+2025-06-03 14:58:10,283 - INFO - Réponse 200 pour POST /client-log en 0.002s
+2025-06-03 14:58:10,284 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:10] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:10,284 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:10] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:10,326 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:10,326 - INFO - Log client à 2025-06-03T14:58:10.243Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:10,328 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:10,329 - INFO - Réponse 200 pour POST /client-log en 0.003s
+2025-06-03 14:58:10,329 - INFO - Log client à 2025-06-03T14:58:10.265Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:10,330 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:10] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:10,330 - INFO - Réponse 200 pour POST /client-log en 0.002s
+2025-06-03 14:58:10,331 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:10] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:10,354 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:10,356 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:10,356 - INFO - Log client à 2025-06-03T14:58:10.337Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:10,357 - INFO - Log client à 2025-06-03T14:58:10.298Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:10,358 - INFO - Réponse 200 pour POST /client-log en 0.004s
+2025-06-03 14:58:10,359 - INFO - Réponse 200 pour POST /client-log en 0.003s
+2025-06-03 14:58:10,360 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:10] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:10,361 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:10] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:10,362 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:10,364 - INFO - Log client à 2025-06-03T14:58:10.344Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:10,364 - INFO - Réponse 200 pour POST /client-log en 0.002s
+2025-06-03 14:58:10,365 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:10] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:10,616 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:10,617 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:10,618 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:10,619 - INFO - Log client à 2025-06-03T14:58:10.525Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:10,619 - INFO - Log client à 2025-06-03T14:58:10.511Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:10,620 - INFO - Log client à 2025-06-03T14:58:10.474Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:10,620 - INFO - Réponse 200 pour POST /client-log en 0.005s
+2025-06-03 14:58:10,621 - INFO - Réponse 200 pour POST /client-log en 0.004s
+2025-06-03 14:58:10,621 - INFO - Réponse 200 pour POST /client-log en 0.003s
+2025-06-03 14:58:10,622 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:10] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:10,622 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:10] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:10,623 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:10] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:10,668 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:10,668 - INFO - Log client à 2025-06-03T14:58:10.561Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:10,668 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 14:58:10,669 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:10] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:10,670 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:10,671 - INFO - Log client à 2025-06-03T14:58:10.577Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:10,671 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 14:58:10,672 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:10] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:10,673 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:10,676 - INFO - Log client à 2025-06-03T14:58:10.630Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:10,676 - INFO - Réponse 200 pour POST /client-log en 0.003s
+2025-06-03 14:58:10,676 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:10] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:10,700 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:10,701 - INFO - Log client à 2025-06-03T14:58:10.673Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:10,701 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 14:58:10,701 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:10] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:10,903 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:10,903 - INFO - Log client à 2025-06-03T14:58:10.893Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:10,903 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 14:58:10,904 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:10] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:10,985 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:10,985 - INFO - Log client à 2025-06-03T14:58:10.976Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:10,986 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 14:58:10,986 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:10] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:11,324 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:11,324 - INFO - Log client à 2025-06-03T14:58:11.258Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:11,325 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 14:58:11,325 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:11] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:11,327 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:11,328 - INFO - Log client à 2025-06-03T14:58:11.276Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:11,328 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 14:58:11,328 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:11] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:11,337 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:11,338 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:11,338 - INFO - Log client à 2025-06-03T14:58:11.325Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:11,339 - INFO - Log client à 2025-06-03T14:58:11.307Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:11,339 - INFO - Réponse 200 pour POST /client-log en 0.003s
+2025-06-03 14:58:11,340 - INFO - Réponse 200 pour POST /client-log en 0.002s
+2025-06-03 14:58:11,341 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:11] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:11,341 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:11] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:11,400 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:11,401 - INFO - Log client à 2025-06-03T14:58:11.391Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:11,402 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 14:58:11,402 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:11] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:11,489 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:11,489 - INFO - Log client à 2025-06-03T14:58:11.441Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:11,489 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 14:58:11,490 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:11] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:11,491 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:11,491 - INFO - Log client à 2025-06-03T14:58:11.425Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:11,492 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 14:58:11,493 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:11] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:11,521 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:11,521 - INFO - Log client à 2025-06-03T14:58:11.475Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:11,522 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 14:58:11,522 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:11] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:11,544 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:11,545 - INFO - Log client à 2025-06-03T14:58:11.492Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:11,546 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 14:58:11,546 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:11] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:11,591 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:11,592 - INFO - Log client à 2025-06-03T14:58:11.525Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:11,593 - INFO - Réponse 200 pour POST /client-log en 0.002s
+2025-06-03 14:58:11,594 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:11] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:11,596 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:11,596 - INFO - Log client à 2025-06-03T14:58:11.542Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:11,596 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 14:58:11,597 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:11] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:11,624 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:11,625 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:11,625 - INFO - Log client à 2025-06-03T14:58:11.592Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:11,626 - INFO - Log client à 2025-06-03T14:58:11.575Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:11,626 - INFO - Réponse 200 pour POST /client-log en 0.002s
+2025-06-03 14:58:11,627 - INFO - Réponse 200 pour POST /client-log en 0.002s
+2025-06-03 14:58:11,627 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:11] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:11,629 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:11] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:11,639 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:11,640 - INFO - Log client à 2025-06-03T14:58:11.630Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:11,640 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 14:58:11,640 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:11] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:11,802 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:11,803 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:11,803 - INFO - Log client à 2025-06-03T14:58:11.775Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:11,804 - INFO - Log client à 2025-06-03T14:58:11.758Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:11,804 - INFO - Réponse 200 pour POST /client-log en 0.002s
+2025-06-03 14:58:11,804 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 14:58:11,805 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:11] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:11,805 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:11] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:11,838 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:11,838 - INFO - Log client à 2025-06-03T14:58:11.808Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:11,838 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 14:58:11,839 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:11] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:11,851 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:11,852 - INFO - Log client à 2025-06-03T14:58:11.841Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:11,852 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 14:58:11,852 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:11] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:11,967 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:11,967 - INFO - Log client à 2025-06-03T14:58:11.958Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:11,968 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 14:58:11,968 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:11] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 14:58:12,002 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 14:58:12,003 - INFO - Log client à 2025-06-03T14:58:11.991Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 14:58:12,003 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 14:58:12,004 - INFO - 172.20.0.1 - - [03/Jun/2025 14:58:12] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 15:04:27,970 - ERROR - 172.20.0.1 - - [03/Jun/2025 15:04:27] code 400, message Bad request syntax ("\x16\x03\x03\x00¦\x01\x00\x00¢\x03\x03h?\x0eû\x13-1\x9e¹e*ã.Æ}\x9b.ë\x14]Òµó:\x02z\x14\x88¢]Ò\x9d\x00\x00*À,À+À0À/\x00\x9f\x00\x9eÀ$À#À(À'À")
+2025-06-03 15:04:27,970 - INFO - 172.20.0.1 - - [03/Jun/2025 15:04:27] "[35m[1m\x16\x03\x03\x00¦\x01\x00\x00¢\x03\x03h?\x0eû\x13-1\x9e¹e*ã.Æ}\x9b.ë\x14]Òµó:\x02z\x14\x88¢]Ò\x9d\x00\x00*À,À+À0À/\x00\x9f\x00\x9eÀ$À#À(À'À[0m" HTTPStatus.BAD_REQUEST -
+2025-06-03 15:04:27,986 - ERROR - 172.20.0.1 - - [03/Jun/2025 15:04:27] code 400, message Bad request syntax ("\x16\x03\x03\x00¦\x01\x00\x00¢\x03\x03h?\x0eûöý\x8fh|ç»<´¦ÚGùÞßf\x11JK\x8eº4Ñ\x82\x01\x0fç;\x00\x00*À,À+À0À/\x00\x9f\x00\x9eÀ$À#À(À'À")
+2025-06-03 15:04:27,986 - INFO - 172.20.0.1 - - [03/Jun/2025 15:04:27] "[35m[1m\x16\x03\x03\x00¦\x01\x00\x00¢\x03\x03h?\x0eûöý\x8fh|ç»<´¦ÚGùÞßf\x11JK\x8eº4Ñ\x82\x01\x0fç;\x00\x00*À,À+À0À/\x00\x9f\x00\x9eÀ$À#À(À'À[0m" HTTPStatus.BAD_REQUEST -
+2025-06-03 15:04:28,002 - INFO - Nouvelle requête : GET / depuis 172.20.0.6
+2025-06-03 15:04:28,002 - INFO - Réponse 404 pour GET / en 0.000s
+2025-06-03 15:04:28,002 - INFO - 172.20.0.6 - - [03/Jun/2025 15:04:28] "[33mGET / HTTP/1.0[0m" 404 -
+2025-06-03 15:04:40,404 - INFO - Nouvelle requête : GET / depuis 172.20.0.6
+2025-06-03 15:04:40,405 - INFO - Réponse 404 pour GET / en 0.001s
+2025-06-03 15:04:40,405 - INFO - 172.20.0.6 - - [03/Jun/2025 15:04:40] "[33mGET / HTTP/1.0[0m" 404 -
+2025-06-03 15:04:40,542 - INFO - Nouvelle requête : GET /loginMsg.js depuis 172.20.0.6
+2025-06-03 15:04:40,543 - INFO - Réponse 404 pour GET /loginMsg.js en 0.001s
+2025-06-03 15:04:40,543 - INFO - 172.20.0.6 - - [03/Jun/2025 15:04:40] "[33mGET /loginMsg.js HTTP/1.0[0m" 404 -
+2025-06-03 15:04:40,561 - INFO - Nouvelle requête : GET /cgi/get.cgi depuis 172.20.0.6
+2025-06-03 15:04:40,562 - INFO - Réponse 404 pour GET /cgi/get.cgi en 0.001s
+2025-06-03 15:04:40,562 - INFO - 172.20.0.6 - - [03/Jun/2025 15:04:40] "[33mGET /cgi/get.cgi?cmd=home_login HTTP/1.0[0m" 404 -
+2025-06-03 15:04:42,008 - INFO - Nouvelle requête : POST /boaform/formPing depuis 172.20.0.6
+2025-06-03 15:04:42,008 - INFO - Réponse 404 pour POST /boaform/formPing en 0.000s
+2025-06-03 15:04:42,009 - INFO - 172.20.0.6 - - [03/Jun/2025 15:04:42] "[33mPOST /boaform/formPing HTTP/1.0[0m" 404 -
+2025-06-03 15:25:45,487 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 15:25:45,488 - INFO - Log client à 2025-06-03T15:25:45.477Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 15:25:45,488 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 15:25:45,489 - INFO - 172.20.0.1 - - [03/Jun/2025 15:25:45] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 15:39:59,110 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 15:39:59,111 - INFO - Log client à 2025-06-03T15:39:59.100Z : ['[INFO] Ajout de la légende pour Ligne bus (URL: http://localhost:8085/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&LAYER=ligne)']
+2025-06-03 15:39:59,111 - INFO - Réponse 200 pour POST /client-log en 0.002s
+2025-06-03 15:39:59,112 - INFO - 172.20.0.1 - - [03/Jun/2025 15:39:59] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 15:39:59,114 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 15:39:59,114 - INFO - Log client à 2025-06-03T15:39:59.100Z : ['[INFO] Ajout de la légende pour Arrêt bus (URL: http://localhost:8085/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&LAYER=arret)']
+2025-06-03 15:39:59,115 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 15:39:59,115 - INFO - 172.20.0.1 - - [03/Jun/2025 15:39:59] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 15:39:59,118 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 15:39:59,119 - INFO - Log client à 2025-06-03T15:39:59.101Z : ['[INFO] Légende affichée à 2025-06-03T15:39:59.101Z']
+2025-06-03 15:39:59,119 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 15:39:59,120 - INFO - 172.20.0.1 - - [03/Jun/2025 15:39:59] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 15:40:04,581 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 15:40:04,581 - INFO - Log client à 2025-06-03T15:40:04.566Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 15:40:04,582 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 15:40:04,582 - INFO - 172.20.0.1 - - [03/Jun/2025 15:40:04] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 15:40:04,652 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 15:40:04,652 - INFO - Log client à 2025-06-03T15:40:04.642Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 15:40:04,652 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 15:40:04,653 - INFO - 172.20.0.1 - - [03/Jun/2025 15:40:04] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 15:40:04,762 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 15:40:04,762 - INFO - Log client à 2025-06-03T15:40:04.751Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 15:40:04,763 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 15:40:04,763 - INFO - 172.20.0.1 - - [03/Jun/2025 15:40:04] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 15:40:05,321 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 15:40:05,322 - INFO - Log client à 2025-06-03T15:40:05.311Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 15:40:05,323 - INFO - Réponse 200 pour POST /client-log en 0.002s
+2025-06-03 15:40:05,324 - INFO - 172.20.0.1 - - [03/Jun/2025 15:40:05] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 15:40:05,382 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 15:40:05,382 - INFO - Log client à 2025-06-03T15:40:05.369Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 15:40:05,383 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 15:40:05,383 - INFO - 172.20.0.1 - - [03/Jun/2025 15:40:05] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 15:40:05,845 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 15:40:05,846 - INFO - Log client à 2025-06-03T15:40:05.829Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 15:40:05,846 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 15:40:05,846 - INFO - 172.20.0.1 - - [03/Jun/2025 15:40:05] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 15:40:05,896 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 15:40:05,897 - INFO - Log client à 2025-06-03T15:40:05.885Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 15:40:05,897 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 15:40:05,898 - INFO - 172.20.0.1 - - [03/Jun/2025 15:40:05] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 15:40:05,928 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 15:40:05,928 - INFO - Log client à 2025-06-03T15:40:05.919Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 15:40:05,928 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 15:40:05,929 - INFO - 172.20.0.1 - - [03/Jun/2025 15:40:05] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 15:48:01,396 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 15:48:01,396 - INFO - Log client à 2025-06-03T15:48:01.387Z : ['[INFO] Bouton "Travaux" cliqué à 2025-06-03T15:48:01.387Z - Couche Travaux visible: false']
+2025-06-03 15:48:01,397 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 15:48:01,397 - INFO - 172.20.0.1 - - [03/Jun/2025 15:48:01] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 15:48:01,399 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 15:48:01,399 - INFO - Log client à 2025-06-03T15:48:01.388Z : ['[INFO] Couche Travaux devient visible']
+2025-06-03 15:48:01,399 - INFO - Réponse 200 pour POST /client-log en 0.000s
+2025-06-03 15:48:01,400 - INFO - 172.20.0.1 - - [03/Jun/2025 15:48:01] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 15:48:06,756 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 15:48:06,757 - INFO - Log client à 2025-06-03T15:48:06.747Z : ['[INFO] Ajout de la légende pour Travaux (URL: http://localhost:8085/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&LAYER=travaux)']
+2025-06-03 15:48:06,758 - INFO - Réponse 200 pour POST /client-log en 0.002s
+2025-06-03 15:48:06,760 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 15:48:06,760 - INFO - 172.20.0.1 - - [03/Jun/2025 15:48:06] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 15:48:06,761 - INFO - Log client à 2025-06-03T15:48:06.748Z : ['[INFO] Légende affichée à 2025-06-03T15:48:06.748Z']
+2025-06-03 15:48:06,761 - INFO - Réponse 200 pour POST /client-log en 0.002s
+2025-06-03 15:48:06,762 - INFO - 172.20.0.1 - - [03/Jun/2025 15:48:06] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 16:06:50,995 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 16:06:50,995 - INFO - Log client à 2025-06-03T16:06:50.988Z : ['[INFO] Bouton "Travaux" cliqué à 2025-06-03T16:06:50.988Z - Couche Travaux visible: true']
+2025-06-03 16:06:50,996 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 16:06:50,996 - INFO - 172.20.0.1 - - [03/Jun/2025 16:06:50] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 16:06:50,997 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 16:06:50,998 - INFO - Log client à 2025-06-03T16:06:50.989Z : ['[INFO] Couche Travaux devient masquée']
+2025-06-03 16:06:50,998 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 16:06:50,999 - INFO - 172.20.0.1 - - [03/Jun/2025 16:06:50] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 16:06:52,227 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 16:06:52,227 - INFO - Log client à 2025-06-03T16:06:52.220Z : ['[INFO] Ajout de la légende pour Tronçon cheminement (URL: http://localhost:8085/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&LAYER=troncon_cheminement)']
+2025-06-03 16:06:52,228 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 16:06:52,228 - INFO - 172.20.0.1 - - [03/Jun/2025 16:06:52] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 16:06:52,230 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 16:06:52,232 - INFO - Log client à 2025-06-03T16:06:52.221Z : ['[INFO] Légende affichée à 2025-06-03T16:06:52.221Z']
+2025-06-03 16:06:52,232 - INFO - Réponse 200 pour POST /client-log en 0.002s
+2025-06-03 16:06:52,232 - INFO - 172.20.0.1 - - [03/Jun/2025 16:06:52] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 16:18:14,952 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 16:18:14,952 - INFO - Log client à 2025-06-03T16:18:14.944Z : ['[INFO] Bouton "ERP" cliqué à 2025-06-03T16:18:14.943Z - Couche ERP visible: false']
+2025-06-03 16:18:14,953 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 16:18:14,953 - INFO - 172.20.0.1 - - [03/Jun/2025 16:18:14] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 16:18:14,954 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 16:18:14,955 - INFO - Log client à 2025-06-03T16:18:14.944Z : ['[INFO] Couche ERP devient visible']
+2025-06-03 16:18:14,955 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 16:18:14,955 - INFO - 172.20.0.1 - - [03/Jun/2025 16:18:14] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 16:18:20,501 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 16:18:20,501 - INFO - Log client à 2025-06-03T16:18:20.492Z : ['[INFO] Ajout de la légende pour ERP (URL: http://localhost:8085/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&LAYER=erp)']
+2025-06-03 16:18:20,502 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 16:18:20,502 - INFO - 172.20.0.1 - - [03/Jun/2025 16:18:20] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 16:18:20,504 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 16:18:20,505 - INFO - Log client à 2025-06-03T16:18:20.493Z : ['[INFO] Légende affichée à 2025-06-03T16:18:20.493Z']
+2025-06-03 16:18:20,505 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 16:18:20,506 - INFO - 172.20.0.1 - - [03/Jun/2025 16:18:20] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 16:42:29,462 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 16:42:29,463 - INFO - Log client à 2025-06-03T16:42:29.452Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 16:42:29,464 - INFO - Réponse 200 pour POST /client-log en 0.002s
+2025-06-03 16:42:29,465 - INFO - 172.20.0.1 - - [03/Jun/2025 16:42:29] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 16:42:30,170 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 16:42:30,171 - INFO - Log client à 2025-06-03T16:42:30.158Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 16:42:30,172 - INFO - Réponse 200 pour POST /client-log en 0.002s
+2025-06-03 16:42:30,173 - INFO - 172.20.0.1 - - [03/Jun/2025 16:42:30] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 16:42:33,763 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 16:42:33,763 - INFO - Log client à 2025-06-03T16:42:33.756Z : ['[INFO] Ajout de la légende pour ERP (URL: http://localhost:8085/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&LAYER=erp)']
+2025-06-03 16:42:33,764 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 16:42:33,765 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 16:42:33,766 - INFO - 172.20.0.1 - - [03/Jun/2025 16:42:33] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 16:42:33,766 - INFO - Log client à 2025-06-03T16:42:33.757Z : ['[INFO] Légende affichée à 2025-06-03T16:42:33.757Z']
+2025-06-03 16:42:33,767 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 16:42:33,767 - INFO - 172.20.0.1 - - [03/Jun/2025 16:42:33] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 16:42:34,892 - INFO - Nouvelle requête : GET /index depuis 172.20.0.1
+2025-06-03 16:42:34,915 - INFO - Réponse 200 pour GET /index en 0.023s
+2025-06-03 16:42:34,916 - INFO - 172.20.0.1 - - [03/Jun/2025 16:42:34] "GET /index HTTP/1.1" 200 -
+2025-06-03 16:42:35,002 - INFO - Nouvelle requête : GET /static/css/styles.css depuis 172.20.0.1
+2025-06-03 16:42:35,006 - INFO - Nouvelle requête : GET /static/js/scripts.js depuis 172.20.0.1
+2025-06-03 16:42:35,012 - INFO - Réponse 200 pour GET /static/css/styles.css en 0.010s
+2025-06-03 16:42:35,014 - INFO - Réponse 304 pour GET /static/js/scripts.js en 0.008s
+2025-06-03 16:42:35,015 - INFO - 172.20.0.1 - - [03/Jun/2025 16:42:35] "[36mGET /static/js/scripts.js HTTP/1.1[0m" 304 -
+2025-06-03 16:42:35,015 - INFO - 172.20.0.1 - - [03/Jun/2025 16:42:35] "GET /static/css/styles.css HTTP/1.1" 200 -
+2025-06-03 16:42:35,022 - INFO - Nouvelle requête : GET /static/image/presentation_leg.jpeg depuis 172.20.0.1
+2025-06-03 16:42:35,024 - INFO - Réponse 304 pour GET /static/image/presentation_leg.jpeg en 0.002s
+2025-06-03 16:42:35,026 - INFO - 172.20.0.1 - - [03/Jun/2025 16:42:35] "[36mGET /static/image/presentation_leg.jpeg HTTP/1.1[0m" 304 -
+2025-06-03 16:42:35,081 - INFO - Nouvelle requête : GET /favicon.ico depuis 172.20.0.1
+2025-06-03 16:42:35,085 - INFO - Réponse 404 pour GET /favicon.ico en 0.004s
+2025-06-03 16:42:35,085 - INFO - 172.20.0.1 - - [03/Jun/2025 16:42:35] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-03 16:42:44,225 - INFO - Nouvelle requête : GET /logging.html depuis 172.20.0.1
+2025-06-03 16:42:44,230 - INFO - Réponse 200 pour GET /logging.html en 0.006s
+2025-06-03 16:42:44,231 - INFO - 172.20.0.1 - - [03/Jun/2025 16:42:44] "GET /logging.html HTTP/1.1" 200 -
+2025-06-03 16:42:44,294 - INFO - Nouvelle requête : GET /static/css/styles.css depuis 172.20.0.1
+2025-06-03 16:42:44,295 - INFO - Nouvelle requête : GET /static/js/scripts.js depuis 172.20.0.1
+2025-06-03 16:42:44,297 - INFO - Réponse 304 pour GET /static/css/styles.css en 0.003s
+2025-06-03 16:42:44,298 - INFO - 172.20.0.1 - - [03/Jun/2025 16:42:44] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+2025-06-03 16:42:44,299 - INFO - Réponse 304 pour GET /static/js/scripts.js en 0.004s
+2025-06-03 16:42:44,300 - INFO - 172.20.0.1 - - [03/Jun/2025 16:42:44] "[36mGET /static/js/scripts.js HTTP/1.1[0m" 304 -
+2025-06-03 16:42:53,373 - INFO - Nouvelle requête : GET /logging_new.html depuis 172.20.0.1
+2025-06-03 16:42:53,375 - INFO - Réponse 200 pour GET /logging_new.html en 0.002s
+2025-06-03 16:42:53,376 - INFO - 172.20.0.1 - - [03/Jun/2025 16:42:53] "GET /logging_new.html HTTP/1.1" 200 -
+2025-06-03 16:42:53,429 - INFO - Nouvelle requête : GET /static/css/styles.css depuis 172.20.0.1
+2025-06-03 16:42:53,431 - INFO - Nouvelle requête : GET /static/js/scripts.js depuis 172.20.0.1
+2025-06-03 16:42:53,433 - INFO - Réponse 304 pour GET /static/js/scripts.js en 0.002s
+2025-06-03 16:42:53,435 - INFO - 172.20.0.1 - - [03/Jun/2025 16:42:53] "[36mGET /static/js/scripts.js HTTP/1.1[0m" 304 -
+2025-06-03 16:42:53,435 - INFO - Réponse 304 pour GET /static/css/styles.css en 0.007s
+2025-06-03 16:42:53,437 - INFO - 172.20.0.1 - - [03/Jun/2025 16:42:53] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+2025-06-03 16:50:36,938 - INFO - Nouvelle requête : POST /create_user depuis 172.20.0.1
+2025-06-03 16:50:36,946 - INFO - Tentative de création d'utilisateur : test1@gmail.fr, type : externe
+2025-06-03 16:50:36,946 - INFO - Réponse 200 pour POST /create_user en 0.008s
+2025-06-03 16:50:36,947 - INFO - 172.20.0.1 - - [03/Jun/2025 16:50:36] "POST /create_user HTTP/1.1" 200 -
+2025-06-03 16:50:47,608 - INFO - Nouvelle requête : GET /logging_new.html depuis 172.20.0.1
+2025-06-03 16:50:47,609 - INFO - Réponse 200 pour GET /logging_new.html en 0.001s
+2025-06-03 16:50:47,609 - INFO - 172.20.0.1 - - [03/Jun/2025 16:50:47] "GET /logging_new.html HTTP/1.1" 200 -
+2025-06-03 16:50:47,684 - INFO - Nouvelle requête : GET /static/css/styles.css depuis 172.20.0.1
+2025-06-03 16:50:47,687 - INFO - Nouvelle requête : GET /static/js/scripts.js depuis 172.20.0.1
+2025-06-03 16:50:47,688 - INFO - Réponse 200 pour GET /static/css/styles.css en 0.004s
+2025-06-03 16:50:47,689 - INFO - 172.20.0.1 - - [03/Jun/2025 16:50:47] "GET /static/css/styles.css HTTP/1.1" 200 -
+2025-06-03 16:50:47,690 - INFO - Réponse 304 pour GET /static/js/scripts.js en 0.004s
+2025-06-03 16:50:47,691 - INFO - 172.20.0.1 - - [03/Jun/2025 16:50:47] "[36mGET /static/js/scripts.js HTTP/1.1[0m" 304 -
+2025-06-03 16:51:10,015 - INFO - Nouvelle requête : POST /create_user depuis 172.20.0.1
+2025-06-03 16:51:10,016 - INFO - Tentative de création d'utilisateur : test1@gmail.fr, type : externe
+2025-06-03 16:51:10,093 - INFO - Utilisateur créé avec succès : test1@gmail.fr (type : externe)
+2025-06-03 16:51:10,094 - INFO - Réponse 302 pour POST /create_user en 0.078s
+2025-06-03 16:51:10,094 - INFO - 172.20.0.1 - - [03/Jun/2025 16:51:10] "[32mPOST /create_user HTTP/1.1[0m" 302 -
+2025-06-03 16:51:10,103 - INFO - Nouvelle requête : GET /success depuis 172.20.0.1
+2025-06-03 16:51:10,103 - INFO - Réponse 200 pour GET /success en 0.001s
+2025-06-03 16:51:10,103 - INFO - 172.20.0.1 - - [03/Jun/2025 16:51:10] "GET /success HTTP/1.1" 200 -
+2025-06-03 16:51:10,178 - INFO - Nouvelle requête : GET /static/css/styles.css depuis 172.20.0.1
+2025-06-03 16:51:10,180 - INFO - Réponse 304 pour GET /static/css/styles.css en 0.002s
+2025-06-03 16:51:10,181 - INFO - 172.20.0.1 - - [03/Jun/2025 16:51:10] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+2025-06-03 16:51:10,184 - INFO - Nouvelle requête : GET /static/js/scripts.js depuis 172.20.0.1
+2025-06-03 16:51:10,186 - INFO - Réponse 304 pour GET /static/js/scripts.js en 0.002s
+2025-06-03 16:51:10,187 - INFO - 172.20.0.1 - - [03/Jun/2025 16:51:10] "[36mGET /static/js/scripts.js HTTP/1.1[0m" 304 -
+2025-06-03 16:52:34,057 - INFO - Nouvelle requête : POST /login depuis 172.20.0.1
+2025-06-03 16:52:34,058 - INFO - Tentative de connexion pour test1@gmail.fr
+2025-06-03 16:52:34,074 - INFO - Exécution de la requête de login pour test1@gmail.fr en 0.016s
+2025-06-03 16:52:34,075 - INFO - Connexion réussie pour test1@gmail.fr - Type : externe
+2025-06-03 16:52:34,075 - INFO - Réponse 302 pour POST /login en 0.019s
+2025-06-03 16:52:34,076 - INFO - 172.20.0.1 - - [03/Jun/2025 16:52:34] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-06-03 16:52:34,086 - INFO - Nouvelle requête : GET /cartographie_externe depuis 172.20.0.1
+2025-06-03 16:52:34,087 - INFO - Réponse 200 pour GET /cartographie_externe en 0.002s
+2025-06-03 16:52:34,088 - INFO - 172.20.0.1 - - [03/Jun/2025 16:52:34] "GET /cartographie_externe HTTP/1.1" 200 -
+2025-06-03 16:53:05,832 - INFO - Nouvelle requête : POST /login depuis 172.20.0.1
+2025-06-03 16:53:05,832 - INFO - Tentative de connexion pour test42@leg.fr
+2025-06-03 16:53:05,834 - INFO - Exécution de la requête de login pour test42@leg.fr en 0.002s
+2025-06-03 16:53:05,835 - WARNING - Échec de connexion pour test42@leg.fr : Identifiants incorrects
+2025-06-03 16:53:05,835 - INFO - Réponse 200 pour POST /login en 0.003s
+2025-06-03 16:53:05,835 - INFO - 172.20.0.1 - - [03/Jun/2025 16:53:05] "POST /login HTTP/1.1" 200 -
+2025-06-03 16:53:06,763 - INFO - Nouvelle requête : GET /logging.html depuis 172.20.0.1
+2025-06-03 16:53:06,764 - INFO - Réponse 200 pour GET /logging.html en 0.001s
+2025-06-03 16:53:06,764 - INFO - 172.20.0.1 - - [03/Jun/2025 16:53:06] "GET /logging.html HTTP/1.1" 200 -
+2025-06-03 16:53:06,819 - INFO - Nouvelle requête : GET /static/js/scripts.js depuis 172.20.0.1
+2025-06-03 16:53:06,820 - INFO - Réponse 304 pour GET /static/js/scripts.js en 0.002s
+2025-06-03 16:53:06,821 - INFO - 172.20.0.1 - - [03/Jun/2025 16:53:06] "[36mGET /static/js/scripts.js HTTP/1.1[0m" 304 -
+2025-06-03 16:53:06,824 - INFO - Nouvelle requête : GET /static/css/styles.css depuis 172.20.0.1
+2025-06-03 16:53:06,826 - INFO - Réponse 200 pour GET /static/css/styles.css en 0.002s
+2025-06-03 16:53:06,827 - INFO - 172.20.0.1 - - [03/Jun/2025 16:53:06] "GET /static/css/styles.css HTTP/1.1" 200 -
+2025-06-03 16:53:27,831 - INFO - Nouvelle requête : POST /login depuis 172.20.0.1
+2025-06-03 16:53:27,832 - INFO - Tentative de connexion pour test42@leg.fr
+2025-06-03 16:53:27,835 - INFO - Exécution de la requête de login pour test42@leg.fr en 0.003s
+2025-06-03 16:53:27,835 - WARNING - Échec de connexion pour test42@leg.fr : Identifiants incorrects
+2025-06-03 16:53:27,836 - INFO - Réponse 200 pour POST /login en 0.005s
+2025-06-03 16:53:27,836 - INFO - 172.20.0.1 - - [03/Jun/2025 16:53:27] "POST /login HTTP/1.1" 200 -
+2025-06-03 16:53:29,447 - INFO - Nouvelle requête : GET /logging.html depuis 172.20.0.1
+2025-06-03 16:53:29,449 - INFO - Réponse 200 pour GET /logging.html en 0.001s
+2025-06-03 16:53:29,449 - INFO - 172.20.0.1 - - [03/Jun/2025 16:53:29] "GET /logging.html HTTP/1.1" 200 -
+2025-06-03 16:53:29,526 - INFO - Nouvelle requête : GET /static/css/styles.css depuis 172.20.0.1
+2025-06-03 16:53:29,529 - INFO - Nouvelle requête : GET /static/js/scripts.js depuis 172.20.0.1
+2025-06-03 16:53:29,530 - INFO - Réponse 200 pour GET /static/css/styles.css en 0.004s
+2025-06-03 16:53:29,532 - INFO - 172.20.0.1 - - [03/Jun/2025 16:53:29] "GET /static/css/styles.css HTTP/1.1" 200 -
+2025-06-03 16:53:29,534 - INFO - Réponse 304 pour GET /static/js/scripts.js en 0.005s
+2025-06-03 16:53:29,535 - INFO - 172.20.0.1 - - [03/Jun/2025 16:53:29] "[36mGET /static/js/scripts.js HTTP/1.1[0m" 304 -
+2025-06-03 16:54:14,883 - INFO - Nouvelle requête : POST /login depuis 172.20.0.1
+2025-06-03 16:54:14,883 - INFO - Tentative de connexion pour nico@leg.fr
+2025-06-03 16:54:14,885 - INFO - Exécution de la requête de login pour nico@leg.fr en 0.002s
+2025-06-03 16:54:14,885 - INFO - Connexion réussie pour nico@leg.fr - Type : interne
+2025-06-03 16:54:14,885 - INFO - Réponse 302 pour POST /login en 0.003s
+2025-06-03 16:54:14,885 - INFO - 172.20.0.1 - - [03/Jun/2025 16:54:14] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-06-03 16:54:14,900 - INFO - Nouvelle requête : GET /cartographie_interne depuis 172.20.0.1
+2025-06-03 16:54:14,901 - INFO - Réponse 200 pour GET /cartographie_interne en 0.001s
+2025-06-03 16:54:14,901 - INFO - 172.20.0.1 - - [03/Jun/2025 16:54:14] "GET /cartographie_interne HTTP/1.1" 200 -
+2025-06-03 16:54:14,987 - INFO - Nouvelle requête : GET /static/css/styles.css depuis 172.20.0.1
+2025-06-03 16:54:14,989 - INFO - Nouvelle requête : GET /static/js/scripts.js depuis 172.20.0.1
+2025-06-03 16:54:14,990 - INFO - Réponse 304 pour GET /static/css/styles.css en 0.004s
+2025-06-03 16:54:14,992 - INFO - 172.20.0.1 - - [03/Jun/2025 16:54:14] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+2025-06-03 16:54:14,993 - INFO - Réponse 304 pour GET /static/js/scripts.js en 0.004s
+2025-06-03 16:54:14,995 - INFO - 172.20.0.1 - - [03/Jun/2025 16:54:14] "[36mGET /static/js/scripts.js HTTP/1.1[0m" 304 -
+2025-06-03 16:54:15,094 - INFO - Nouvelle requête : GET /get_accessibility_data depuis 172.20.0.1
+2025-06-03 16:54:15,105 - INFO - Exécution de la requête get_accessibility_data en 0.011s
+2025-06-03 16:54:15,106 - INFO - Réponse 200 pour GET /get_accessibility_data en 0.012s
+2025-06-03 16:54:15,107 - INFO - 172.20.0.1 - - [03/Jun/2025 16:54:15] "GET /get_accessibility_data HTTP/1.1" 200 -
+2025-06-03 16:54:15,110 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 16:54:15,110 - INFO - Log client à 2025-06-03T16:54:15.085Z : ['[INFO] Événement "load" déclenché - Mise à jour de la taille de la carte effectuée']
+2025-06-03 16:54:15,111 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 16:54:15,111 - INFO - 172.20.0.1 - - [03/Jun/2025 16:54:15] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 16:54:15,217 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 16:54:15,217 - INFO - Log client à 2025-06-03T16:54:15.141Z : ["[INFO] Données d'accessibilité récupérées :", {'lg_access_moy': 519164.4964337632, 'lg_accessible': 682222.3422465249, 'lg_non_access': 130978.47311978211, 'pourcent_access': 52, 'pourcent_access_moy': 38, 'pourcent_non_access': 9}]
+2025-06-03 16:54:15,218 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 16:54:15,218 - INFO - 172.20.0.1 - - [03/Jun/2025 16:54:15] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 16:54:15,249 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 16:54:15,250 - INFO - Log client à 2025-06-03T16:54:15.219Z : ['[INFO] Histogramme (barChart) initialisé']
+2025-06-03 16:54:15,250 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 16:54:15,251 - INFO - 172.20.0.1 - - [03/Jun/2025 16:54:15] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 16:54:15,281 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 16:54:15,282 - INFO - Log client à 2025-06-03T16:54:15.270Z : ['[INFO] Graphique en camembert (pieChart) initialisé']
+2025-06-03 16:54:15,282 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 16:54:15,283 - INFO - 172.20.0.1 - - [03/Jun/2025 16:54:15] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 16:54:17,448 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 16:54:17,449 - ERROR - Log client à 2025-06-03T16:54:17.441Z : [{}]
+2025-06-03 16:54:17,449 - INFO - Réponse 200 pour POST /client-log en 0.000s
+2025-06-03 16:54:17,449 - INFO - 172.20.0.1 - - [03/Jun/2025 16:54:17] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 16:54:45,320 - INFO - Nouvelle requête : POST /login depuis 172.20.0.1
+2025-06-03 16:54:45,320 - INFO - Tentative de connexion pour nico@leg.fr
+2025-06-03 16:54:45,323 - INFO - Exécution de la requête de login pour nico@leg.fr en 0.002s
+2025-06-03 16:54:45,323 - INFO - Connexion réussie pour nico@leg.fr - Type : interne
+2025-06-03 16:54:45,323 - INFO - Réponse 302 pour POST /login en 0.003s
+2025-06-03 16:54:45,323 - INFO - 172.20.0.1 - - [03/Jun/2025 16:54:45] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-06-03 16:54:45,336 - INFO - Nouvelle requête : GET /cartographie_interne depuis 172.20.0.1
+2025-06-03 16:54:45,336 - INFO - Réponse 200 pour GET /cartographie_interne en 0.000s
+2025-06-03 16:54:45,336 - INFO - 172.20.0.1 - - [03/Jun/2025 16:54:45] "GET /cartographie_interne HTTP/1.1" 200 -
+2025-06-03 16:54:45,429 - INFO - Nouvelle requête : GET /static/js/scripts.js depuis 172.20.0.1
+2025-06-03 16:54:45,431 - INFO - Nouvelle requête : GET /static/css/styles.css depuis 172.20.0.1
+2025-06-03 16:54:45,433 - INFO - Réponse 200 pour GET /static/css/styles.css en 0.002s
+2025-06-03 16:54:45,434 - INFO - Réponse 304 pour GET /static/js/scripts.js en 0.005s
+2025-06-03 16:54:45,435 - INFO - 172.20.0.1 - - [03/Jun/2025 16:54:45] "GET /static/css/styles.css HTTP/1.1" 200 -
+2025-06-03 16:54:45,436 - INFO - 172.20.0.1 - - [03/Jun/2025 16:54:45] "[36mGET /static/js/scripts.js HTTP/1.1[0m" 304 -
+2025-06-03 16:54:45,506 - INFO - Nouvelle requête : GET /get_accessibility_data depuis 172.20.0.1
+2025-06-03 16:54:45,508 - INFO - Exécution de la requête get_accessibility_data en 0.002s
+2025-06-03 16:54:45,509 - INFO - Réponse 200 pour GET /get_accessibility_data en 0.003s
+2025-06-03 16:54:45,510 - INFO - 172.20.0.1 - - [03/Jun/2025 16:54:45] "GET /get_accessibility_data HTTP/1.1" 200 -
+2025-06-03 16:54:45,559 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 16:54:45,559 - INFO - Log client à 2025-06-03T16:54:45.504Z : ['[INFO] Événement "load" déclenché - Mise à jour de la taille de la carte effectuée']
+2025-06-03 16:54:45,560 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 16:54:45,560 - INFO - 172.20.0.1 - - [03/Jun/2025 16:54:45] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 16:54:45,588 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 16:54:45,589 - INFO - Log client à 2025-06-03T16:54:45.557Z : ["[INFO] Données d'accessibilité récupérées :", {'lg_access_moy': 519164.4964337632, 'lg_accessible': 682222.3422465249, 'lg_non_access': 130978.47311978211, 'pourcent_access': 52, 'pourcent_access_moy': 38, 'pourcent_non_access': 9}]
+2025-06-03 16:54:45,589 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 16:54:45,590 - INFO - 172.20.0.1 - - [03/Jun/2025 16:54:45] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 16:54:45,653 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 16:54:45,653 - INFO - Log client à 2025-06-03T16:54:45.635Z : ['[INFO] Histogramme (barChart) initialisé']
+2025-06-03 16:54:45,653 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 16:54:45,654 - INFO - 172.20.0.1 - - [03/Jun/2025 16:54:45] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 16:54:45,673 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 16:54:45,674 - INFO - Log client à 2025-06-03T16:54:45.665Z : ['[INFO] Graphique en camembert (pieChart) initialisé']
+2025-06-03 16:54:45,674 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 16:54:45,674 - INFO - 172.20.0.1 - - [03/Jun/2025 16:54:45] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 16:54:47,887 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 16:54:47,888 - ERROR - Log client à 2025-06-03T16:54:47.881Z : [{}]
+2025-06-03 16:54:47,888 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 16:54:47,888 - INFO - 172.20.0.1 - - [03/Jun/2025 16:54:47] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 17:10:29,511 - INFO - Nouvelle requête : GET /index depuis 172.20.0.1
+2025-06-03 17:10:29,512 - INFO - Réponse 200 pour GET /index en 0.001s
+2025-06-03 17:10:29,513 - INFO - 172.20.0.1 - - [03/Jun/2025 17:10:29] "GET /index HTTP/1.1" 200 -
+2025-06-03 17:10:29,579 - INFO - Nouvelle requête : GET /static/css/styles.css depuis 172.20.0.1
+2025-06-03 17:10:29,580 - INFO - Réponse 200 pour GET /static/css/styles.css en 0.001s
+2025-06-03 17:10:29,582 - INFO - 172.20.0.1 - - [03/Jun/2025 17:10:29] "GET /static/css/styles.css HTTP/1.1" 200 -
+2025-06-03 17:10:29,588 - INFO - Nouvelle requête : GET /static/js/scripts.js depuis 172.20.0.1
+2025-06-03 17:10:29,590 - INFO - Réponse 304 pour GET /static/js/scripts.js en 0.002s
+2025-06-03 17:10:29,591 - INFO - 172.20.0.1 - - [03/Jun/2025 17:10:29] "[36mGET /static/js/scripts.js HTTP/1.1[0m" 304 -
+2025-06-03 17:10:29,603 - INFO - Nouvelle requête : GET /static/image/presentation_leg.jpeg depuis 172.20.0.1
+2025-06-03 17:10:29,604 - INFO - Réponse 304 pour GET /static/image/presentation_leg.jpeg en 0.002s
+2025-06-03 17:10:29,606 - INFO - 172.20.0.1 - - [03/Jun/2025 17:10:29] "[36mGET /static/image/presentation_leg.jpeg HTTP/1.1[0m" 304 -
+2025-06-03 17:17:18,145 - INFO - Nouvelle requête : GET /contact depuis 172.20.0.1
+2025-06-03 17:17:18,150 - INFO - Réponse 200 pour GET /contact en 0.004s
+2025-06-03 17:17:18,150 - INFO - 172.20.0.1 - - [03/Jun/2025 17:17:18] "GET /contact HTTP/1.1" 200 -
+2025-06-03 19:38:12,424 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 19:38:12,423 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 19:38:12,432 - INFO - Log client à 2025-06-03T19:38:12.385Z : ['[INFO] Couche Stationnement PMR devient visible']
+2025-06-03 19:38:12,433 - INFO - Log client à 2025-06-03T19:38:12.384Z : ['[INFO] Bouton "PMR" cliqué à 2025-06-03T19:38:12.384Z - Couche Stationnement PMR visible: false']
+2025-06-03 19:38:12,436 - INFO - Réponse 200 pour POST /client-log en 0.011s
+2025-06-03 19:38:12,436 - INFO - Réponse 200 pour POST /client-log en 0.014s
+2025-06-03 19:38:12,439 - INFO - 172.20.0.1 - - [03/Jun/2025 19:38:12] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 19:38:12,440 - INFO - 172.20.0.1 - - [03/Jun/2025 19:38:12] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 19:38:17,191 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 19:38:17,192 - INFO - Log client à 2025-06-03T19:38:17.184Z : ['[INFO] Ajout de la légende pour Stationnement PMR (URL: http://localhost:8085/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&LAYER=stationnement_pmr)']
+2025-06-03 19:38:17,193 - INFO - Réponse 200 pour POST /client-log en 0.002s
+2025-06-03 19:38:17,193 - INFO - 172.20.0.1 - - [03/Jun/2025 19:38:17] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 19:38:17,195 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 19:38:17,196 - INFO - Log client à 2025-06-03T19:38:17.184Z : ['[INFO] Légende affichée à 2025-06-03T19:38:17.184Z']
+2025-06-03 19:38:17,196 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 19:38:17,197 - INFO - 172.20.0.1 - - [03/Jun/2025 19:38:17] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 20:25:34,625 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 20:25:34,626 - INFO - Log client à 2025-06-03T20:25:34.617Z : ['[INFO] Bouton "ERP" cliqué à 2025-06-03T20:25:34.617Z - Couche ERP visible: false']
+2025-06-03 20:25:34,626 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 20:25:34,627 - INFO - 172.20.0.1 - - [03/Jun/2025 20:25:34] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 20:25:34,628 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 20:25:34,629 - INFO - Log client à 2025-06-03T20:25:34.617Z : ['[INFO] Couche ERP devient visible']
+2025-06-03 20:25:34,630 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 20:25:34,630 - INFO - 172.20.0.1 - - [03/Jun/2025 20:25:34] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 20:25:35,576 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 20:25:35,576 - INFO - Log client à 2025-06-03T20:25:35.568Z : ['[INFO] Bouton "ERP" cliqué à 2025-06-03T20:25:35.568Z - Couche ERP visible: true']
+2025-06-03 20:25:35,578 - INFO - Réponse 200 pour POST /client-log en 0.002s
+2025-06-03 20:25:35,578 - INFO - 172.20.0.1 - - [03/Jun/2025 20:25:35] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 20:25:35,580 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 20:25:35,580 - INFO - Log client à 2025-06-03T20:25:35.569Z : ['[INFO] Couche ERP devient masquée']
+2025-06-03 20:25:35,581 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 20:25:35,581 - INFO - 172.20.0.1 - - [03/Jun/2025 20:25:35] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 20:25:39,977 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 20:25:39,978 - INFO - Log client à 2025-06-03T20:25:39.969Z : ['[INFO] Bouton "PMR" cliqué à 2025-06-03T20:25:39.969Z - Couche Stationnement PMR visible: true']
+2025-06-03 20:25:39,978 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 20:25:39,979 - INFO - 172.20.0.1 - - [03/Jun/2025 20:25:39] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 20:25:39,982 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 20:25:39,983 - INFO - Log client à 2025-06-03T20:25:39.970Z : ['[INFO] Couche Stationnement PMR devient masquée']
+2025-06-03 20:25:39,983 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 20:25:39,983 - INFO - 172.20.0.1 - - [03/Jun/2025 20:25:39] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 20:25:41,737 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 20:25:41,738 - INFO - Log client à 2025-06-03T20:25:41.729Z : ['[INFO] Ajout de la légende pour Quartiers (URL: http://localhost:8085/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&LAYER=vm_iris_indicateur)']
+2025-06-03 20:25:41,738 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 20:25:41,738 - INFO - 172.20.0.1 - - [03/Jun/2025 20:25:41] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 20:25:41,740 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 20:25:41,740 - INFO - Log client à 2025-06-03T20:25:41.729Z : ['[INFO] Légende affichée à 2025-06-03T20:25:41.729Z']
+2025-06-03 20:25:41,741 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 20:25:41,742 - INFO - 172.20.0.1 - - [03/Jun/2025 20:25:41] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 20:28:38,456 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 20:28:38,457 - INFO - Log client à 2025-06-03T20:28:38.449Z : ['[DEBUG] Itinéraire panel display: block']
+2025-06-03 20:28:38,457 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 20:28:38,457 - INFO - 172.20.0.1 - - [03/Jun/2025 20:28:38] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 20:28:40,945 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 20:28:40,945 - INFO - Log client à 2025-06-03T20:28:40.935Z : ['[INFO] Événement "resize" déclenché - Nouvelle taille de la carte recalculée']
+2025-06-03 20:28:40,946 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 20:28:40,946 - INFO - 172.20.0.1 - - [03/Jun/2025 20:28:40] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 20:28:44,535 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 20:28:44,535 - INFO - Log client à 2025-06-03T20:28:44.529Z : ['[DEBUG] Itinéraire panel display: none']
+2025-06-03 20:28:44,535 - INFO - Réponse 200 pour POST /client-log en 0.000s
+2025-06-03 20:28:44,535 - INFO - 172.20.0.1 - - [03/Jun/2025 20:28:44] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 20:28:47,277 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 20:28:47,277 - INFO - Log client à 2025-06-03T20:28:47.272Z : ['[DEBUG] Itinéraire panel display: block']
+2025-06-03 20:28:47,277 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 20:28:47,278 - INFO - 172.20.0.1 - - [03/Jun/2025 20:28:47] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 20:36:31,649 - INFO - Nouvelle requête : POST /api/itineraire_coord depuis 172.20.0.1
+2025-06-03 20:36:31,650 - INFO - Données reçues : {'start': [4.826220182262126, 45.754363724296184], 'end': [4.832283035457187, 45.75459106506048]}
+2025-06-03 20:36:31,657 - INFO - Exécution de la requête avec lon1: 4.826220182262126, lat1: 45.754363724296184, lon2: 4.832283035457187, lat2: 45.75459106506048
+2025-06-03 20:36:32,510 - INFO - Réponse 200 pour POST /api/itineraire_coord en 0.861s
+2025-06-03 20:36:32,513 - INFO - 172.20.0.1 - - [03/Jun/2025 20:36:32] "POST /api/itineraire_coord HTTP/1.1" 200 -
+2025-06-03 20:36:42,018 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 20:36:42,018 - INFO - Log client à 2025-06-03T20:36:42.010Z : ['[DEBUG] Itinéraire panel display: none']
+2025-06-03 20:36:42,018 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 20:36:42,019 - INFO - 172.20.0.1 - - [03/Jun/2025 20:36:42] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 20:36:45,294 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 20:36:45,295 - INFO - Log client à 2025-06-03T20:36:45.289Z : ['[DEBUG] Itinéraire panel display: block']
+2025-06-03 20:36:45,295 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 20:36:45,296 - INFO - 172.20.0.1 - - [03/Jun/2025 20:36:45] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 20:37:34,794 - INFO - Nouvelle requête : POST /api/itineraire_coord depuis 172.20.0.1
+2025-06-03 20:37:34,794 - INFO - Données reçues : {'start': [4.826187942838663, 45.754446092542906], 'end': [4.831877310264435, 45.75391179549604]}
+2025-06-03 20:37:34,794 - INFO - Exécution de la requête avec lon1: 4.826187942838663, lat1: 45.754446092542906, lon2: 4.831877310264435, lat2: 45.75391179549604
+2025-06-03 20:37:35,026 - INFO - Réponse 200 pour POST /api/itineraire_coord en 0.232s
+2025-06-03 20:37:35,026 - INFO - 172.20.0.1 - - [03/Jun/2025 20:37:35] "POST /api/itineraire_coord HTTP/1.1" 200 -
+2025-06-03 20:37:49,548 - INFO - Nouvelle requête : POST /api/itineraire_coord depuis 172.20.0.1
+2025-06-03 20:37:49,549 - INFO - Données reçues : {'start': [4.82933175081715, 45.753756563162966], 'end': [4.826211873654899, 45.754437199520254]}
+2025-06-03 20:37:49,551 - INFO - Exécution de la requête avec lon1: 4.82933175081715, lat1: 45.753756563162966, lon2: 4.826211873654899, lat2: 45.754437199520254
+2025-06-03 20:37:49,752 - INFO - Réponse 200 pour POST /api/itineraire_coord en 0.203s
+2025-06-03 20:37:49,752 - INFO - 172.20.0.1 - - [03/Jun/2025 20:37:49] "POST /api/itineraire_coord HTTP/1.1" 200 -
+2025-06-03 20:38:03,473 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 20:38:03,473 - INFO - Log client à 2025-06-03T20:38:03.465Z : ['[DEBUG] Itinéraire panel display: none']
+2025-06-03 20:38:03,474 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 20:38:03,474 - INFO - 172.20.0.1 - - [03/Jun/2025 20:38:03] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 20:38:03,887 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 20:38:03,888 - INFO - Log client à 2025-06-03T20:38:03.880Z : ['[DEBUG] Itinéraire panel display: block']
+2025-06-03 20:38:03,888 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 20:38:03,888 - INFO - 172.20.0.1 - - [03/Jun/2025 20:38:03] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 20:38:16,296 - INFO - Nouvelle requête : POST /api/itineraire_coord depuis 172.20.0.1
+2025-06-03 20:38:16,297 - INFO - Données reçues : {'start': [4.826152018731096, 45.75440230089785], 'end': [4.834352340819733, 45.754722359475835]}
+2025-06-03 20:38:16,297 - INFO - Exécution de la requête avec lon1: 4.826152018731096, lat1: 45.75440230089785, lon2: 4.834352340819733, lat2: 45.754722359475835
+2025-06-03 20:38:16,594 - INFO - Réponse 200 pour POST /api/itineraire_coord en 0.298s
+2025-06-03 20:38:16,595 - INFO - 172.20.0.1 - - [03/Jun/2025 20:38:16] "POST /api/itineraire_coord HTTP/1.1" 200 -
+2025-06-03 20:38:27,902 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 20:38:27,902 - INFO - Log client à 2025-06-03T20:38:27.897Z : ['[DEBUG] Itinéraire panel display: none']
+2025-06-03 20:38:27,902 - INFO - Réponse 200 pour POST /client-log en 0.000s
+2025-06-03 20:38:27,902 - INFO - 172.20.0.1 - - [03/Jun/2025 20:38:27] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 20:38:28,422 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 20:38:28,422 - INFO - Log client à 2025-06-03T20:38:28.417Z : ['[DEBUG] Itinéraire panel display: block']
+2025-06-03 20:38:28,423 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 20:38:28,423 - INFO - 172.20.0.1 - - [03/Jun/2025 20:38:28] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 20:38:47,535 - INFO - Nouvelle requête : POST /api/itineraire_coord depuis 172.20.0.1
+2025-06-03 20:38:47,535 - INFO - Données reçues : {'start': [4.826166988379068, 45.75435103247531], 'end': [4.832243688774348, 45.75651937458073]}
+2025-06-03 20:38:47,536 - INFO - Exécution de la requête avec lon1: 4.826166988379068, lat1: 45.75435103247531, lon2: 4.832243688774348, lat2: 45.75651937458073
+2025-06-03 20:38:47,827 - INFO - Réponse 200 pour POST /api/itineraire_coord en 0.292s
+2025-06-03 20:38:47,828 - INFO - 172.20.0.1 - - [03/Jun/2025 20:38:47] "POST /api/itineraire_coord HTTP/1.1" 200 -
+2025-06-03 20:39:05,067 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 20:39:05,067 - INFO - Log client à 2025-06-03T20:39:05.057Z : ['[DEBUG] Itinéraire panel display: none']
+2025-06-03 20:39:05,068 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 20:39:05,068 - INFO - 172.20.0.1 - - [03/Jun/2025 20:39:05] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 20:39:05,543 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 20:39:05,544 - INFO - Log client à 2025-06-03T20:39:05.536Z : ['[DEBUG] Itinéraire panel display: block']
+2025-06-03 20:39:05,544 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 20:39:05,545 - INFO - 172.20.0.1 - - [03/Jun/2025 20:39:05] "POST /client-log HTTP/1.1" 200 -
+2025-06-03 20:39:18,947 - INFO - Nouvelle requête : POST /api/itineraire_coord depuis 172.20.0.1
+2025-06-03 20:39:18,948 - INFO - Données reçues : {'start': [4.826161970896881, 45.75444798763098], 'end': [4.832251760415969, 45.75651837334618]}
+2025-06-03 20:39:18,948 - INFO - Exécution de la requête avec lon1: 4.826161970896881, lat1: 45.75444798763098, lon2: 4.832251760415969, lat2: 45.75651837334618
+2025-06-03 20:39:19,163 - INFO - Réponse 200 pour POST /api/itineraire_coord en 0.216s
+2025-06-03 20:39:19,163 - INFO - 172.20.0.1 - - [03/Jun/2025 20:39:19] "POST /api/itineraire_coord HTTP/1.1" 200 -
+2025-06-03 20:39:44,381 - INFO - Nouvelle requête : POST /api/itineraire_coord depuis 172.20.0.1
+2025-06-03 20:39:44,382 - INFO - Données reçues : {'start': [4.826156552810184, 45.75445725062224], 'end': [4.832241636672851, 45.75652542363483]}
+2025-06-03 20:39:44,383 - INFO - Exécution de la requête avec lon1: 4.826156552810184, lat1: 45.75445725062224, lon2: 4.832241636672851, lat2: 45.75652542363483
+2025-06-03 20:39:44,586 - INFO - Réponse 200 pour POST /api/itineraire_coord en 0.204s
+2025-06-03 20:39:44,586 - INFO - 172.20.0.1 - - [03/Jun/2025 20:39:44] "POST /api/itineraire_coord HTTP/1.1" 200 -
+2025-06-03 20:46:20,439 - INFO - Nouvelle requête : POST /api/itineraire_coord depuis 172.20.0.1
+2025-06-03 20:46:20,439 - INFO - Données reçues : {'start': [4.826136211815638, 45.75440688838458], 'end': [4.829377167364375, 45.75119156570821]}
+2025-06-03 20:46:20,440 - INFO - Exécution de la requête avec lon1: 4.826136211815638, lat1: 45.75440688838458, lon2: 4.829377167364375, lat2: 45.75119156570821
+2025-06-03 20:46:20,687 - INFO - Réponse 200 pour POST /api/itineraire_coord en 0.248s
+2025-06-03 20:46:20,687 - INFO - 172.20.0.1 - - [03/Jun/2025 20:46:20] "POST /api/itineraire_coord HTTP/1.1" 200 -
+2025-06-03 20:47:21,164 - INFO - Nouvelle requête : POST /api/itineraire_coord depuis 172.20.0.1
+2025-06-03 20:47:21,164 - INFO - Données reçues : {'start': [4.826127640703607, 45.754421236304836], 'end': [4.8298092899675815, 45.75215522018891]}
+2025-06-03 20:47:21,165 - INFO - Exécution de la requête avec lon1: 4.826127640703607, lat1: 45.754421236304836, lon2: 4.8298092899675815, lat2: 45.75215522018891
+2025-06-03 20:47:21,398 - INFO - Réponse 200 pour POST /api/itineraire_coord en 0.234s
+2025-06-03 20:47:21,398 - INFO - 172.20.0.1 - - [03/Jun/2025 20:47:21] "POST /api/itineraire_coord HTTP/1.1" 200 -
+2025-06-03 20:47:46,113 - INFO - Nouvelle requête : POST /api/itineraire_coord depuis 172.20.0.1
+2025-06-03 20:47:46,114 - INFO - Données reçues : {'start': [4.826133517347478, 45.754435617474684], 'end': [4.829358797454376, 45.75119749150937]}
+2025-06-03 20:47:46,115 - INFO - Exécution de la requête avec lon1: 4.826133517347478, lat1: 45.754435617474684, lon2: 4.829358797454376, lat2: 45.75119749150937
+2025-06-03 20:47:46,317 - INFO - Réponse 200 pour POST /api/itineraire_coord en 0.204s
+2025-06-03 20:47:46,317 - INFO - 172.20.0.1 - - [03/Jun/2025 20:47:46] "POST /api/itineraire_coord HTTP/1.1" 200 -
+2025-06-03 20:48:00,430 - INFO - Nouvelle requête : POST /api/itineraire_coord depuis 172.20.0.1
+2025-06-03 20:48:00,431 - INFO - Données reçues : {'start': [4.826148921913225, 45.75444597396435], 'end': [4.8293694783021355, 45.75123988191399]}
+2025-06-03 20:48:00,432 - INFO - Exécution de la requête avec lon1: 4.826148921913225, lat1: 45.75444597396435, lon2: 4.8293694783021355, lat2: 45.75123988191399
+2025-06-03 20:48:00,629 - INFO - Réponse 200 pour POST /api/itineraire_coord en 0.199s
+2025-06-03 20:48:00,630 - INFO - 172.20.0.1 - - [03/Jun/2025 20:48:00] "POST /api/itineraire_coord HTTP/1.1" 200 -
+2025-06-03 20:59:09,892 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-03 20:59:09,892 - INFO - Log client à 2025-06-03T20:59:09.883Z : ['[DEBUG] Itinéraire panel display: none']
+2025-06-03 20:59:09,893 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-03 20:59:09,893 - INFO - 172.20.0.1 - - [03/Jun/2025 20:59:09] "POST /client-log HTTP/1.1" 200 -
+2025-06-15 09:46:24,315 - INFO - Chargement des variables d'environnement...
+2025-06-15 09:46:24,318 - INFO - Application Flask initialisée.
+2025-06-15 09:46:24,347 - INFO - Connexion réussie à la base access_leg_db
+2025-06-15 09:46:24,347 - INFO - Connexion réussie à la base authent_leg_db
+2025-06-15 09:46:24,359 - INFO - L'application Flask est sur le point de démarrer.
+2025-06-15 09:46:24,426 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.0.5:5000
+2025-06-15 09:46:24,426 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-15 09:46:24,427 - INFO -  * Restarting with stat
+2025-06-15 09:46:25,324 - INFO - Chargement des variables d'environnement...
+2025-06-15 09:46:25,325 - INFO - Application Flask initialisée.
+2025-06-15 09:46:25,347 - INFO - Connexion réussie à la base access_leg_db
+2025-06-15 09:46:25,348 - INFO - Connexion réussie à la base authent_leg_db
+2025-06-15 09:46:25,355 - INFO - L'application Flask est sur le point de démarrer.
+2025-06-15 09:46:25,367 - WARNING -  * Debugger is active!
+2025-06-15 09:46:25,367 - INFO -  * Debugger PIN: 138-289-339
+2025-06-15 09:51:21,912 - ERROR - 172.20.0.1 - - [15/Jun/2025 09:51:21] code 400, message Bad request syntax ("\x16\x03\x03\x00¦\x01\x00\x00¢\x03\x03hN\x97\x99\x0f\x83È\x96û\x10Ý3`%mzPg%\x81\x9f&RPuå]¯¨úI\x00\x00\x00*À,À+À0À/\x00\x9f\x00\x9eÀ$À#À(À'À")
+2025-06-15 09:51:21,912 - INFO - 172.20.0.1 - - [15/Jun/2025 09:51:21] "[35m[1m\x16\x03\x03\x00¦\x01\x00\x00¢\x03\x03hN\x97\x99\x0f\x83È\x96û\x10Ý3`%mzPg%\x81\x9f&RPuå]¯¨úI\x00\x00\x00*À,À+À0À/\x00\x9f\x00\x9eÀ$À#À(À'À[0m" HTTPStatus.BAD_REQUEST -
+2025-06-15 09:51:21,929 - ERROR - 172.20.0.1 - - [15/Jun/2025 09:51:21] code 400, message Bad request version ("¨£\x00\x00*À,À+À0À/\x00\x9f\x00\x9eÀ$À#À(À'À")
+2025-06-15 09:51:21,929 - INFO - 172.20.0.1 - - [15/Jun/2025 09:51:21] "[35m[1m\x16\x03\x03\x00¦\x01\x00\x00¢\x03\x03hN\x97\x99ÊhsÖ\x83\x1c\x9d.;lv\x8aîã;\x04ÞÈU@mþ>7)\x1f¨£\x00\x00*À,À+À0À/\x00\x9f\x00\x9eÀ$À#À(À'À[0m" HTTPStatus.BAD_REQUEST -
+2025-06-15 09:51:21,945 - INFO - Nouvelle requête : GET / depuis 172.20.0.6
+2025-06-15 09:51:21,945 - INFO - Réponse 404 pour GET / en 0.001s
+2025-06-15 09:51:21,946 - INFO - 172.20.0.6 - - [15/Jun/2025 09:51:21] "[33mGET / HTTP/1.0[0m" 404 -
+2025-06-15 09:51:34,347 - INFO - Nouvelle requête : GET / depuis 172.20.0.6
+2025-06-15 09:51:34,348 - INFO - Réponse 404 pour GET / en 0.001s
+2025-06-15 09:51:34,349 - INFO - 172.20.0.6 - - [15/Jun/2025 09:51:34] "[33mGET / HTTP/1.0[0m" 404 -
+2025-06-15 09:51:34,455 - INFO - Nouvelle requête : GET /loginMsg.js depuis 172.20.0.6
+2025-06-15 09:51:34,456 - INFO - Réponse 404 pour GET /loginMsg.js en 0.001s
+2025-06-15 09:51:34,456 - INFO - 172.20.0.6 - - [15/Jun/2025 09:51:34] "[33mGET /loginMsg.js HTTP/1.0[0m" 404 -
+2025-06-15 09:51:34,475 - INFO - Nouvelle requête : GET /cgi/get.cgi depuis 172.20.0.6
+2025-06-15 09:51:34,476 - INFO - Réponse 404 pour GET /cgi/get.cgi en 0.001s
+2025-06-15 09:51:34,476 - INFO - 172.20.0.6 - - [15/Jun/2025 09:51:34] "[33mGET /cgi/get.cgi?cmd=home_login HTTP/1.0[0m" 404 -
+2025-06-15 10:08:10,242 - INFO - Chargement des variables d'environnement...
+2025-06-15 10:08:10,243 - INFO - Application Flask initialisée.
+2025-06-15 10:08:10,266 - INFO - Connexion réussie à la base access_leg_db
+2025-06-15 10:08:10,267 - INFO - Connexion réussie à la base authent_leg_db
+2025-06-15 10:08:10,275 - INFO - L'application Flask est sur le point de démarrer.
+2025-06-15 10:08:10,329 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.0.5:5000
+2025-06-15 10:08:10,330 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-15 10:08:10,331 - INFO -  * Restarting with stat
+2025-06-15 10:08:11,077 - INFO - Chargement des variables d'environnement...
+2025-06-15 10:08:11,078 - INFO - Application Flask initialisée.
+2025-06-15 10:08:11,099 - INFO - Connexion réussie à la base access_leg_db
+2025-06-15 10:08:11,099 - INFO - Connexion réussie à la base authent_leg_db
+2025-06-15 10:08:11,106 - INFO - L'application Flask est sur le point de démarrer.
+2025-06-15 10:08:11,119 - WARNING -  * Debugger is active!
+2025-06-15 10:08:11,119 - INFO -  * Debugger PIN: 138-289-339
+2025-06-15 10:42:14,417 - INFO - Nouvelle requête : GET /cartographie_interne depuis 172.20.0.1
+2025-06-15 10:42:14,433 - INFO - Réponse 200 pour GET /cartographie_interne en 0.016s
+2025-06-15 10:42:14,434 - INFO - 172.20.0.1 - - [15/Jun/2025 10:42:14] "GET /cartographie_interne HTTP/1.1" 200 -
+2025-06-15 10:42:14,507 - INFO - Nouvelle requête : GET /static/css/styles.css depuis 172.20.0.1
+2025-06-15 10:42:14,509 - INFO - Nouvelle requête : GET /static/js/scripts.js depuis 172.20.0.1
+2025-06-15 10:42:14,518 - INFO - Réponse 304 pour GET /static/css/styles.css en 0.011s
+2025-06-15 10:42:14,519 - INFO - Réponse 304 pour GET /static/js/scripts.js en 0.011s
+2025-06-15 10:42:14,520 - INFO - 172.20.0.1 - - [15/Jun/2025 10:42:14] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+2025-06-15 10:42:14,521 - INFO - 172.20.0.1 - - [15/Jun/2025 10:42:14] "[36mGET /static/js/scripts.js HTTP/1.1[0m" 304 -
+2025-06-15 10:42:14,712 - INFO - Nouvelle requête : GET /get_accessibility_data depuis 172.20.0.1
+2025-06-15 10:42:14,755 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-15 10:42:14,756 - INFO - Log client à 2025-06-15T10:42:14.718Z : ['[INFO] Événement "load" déclenché - Mise à jour de la taille de la carte effectuée']
+2025-06-15 10:42:14,756 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-15 10:42:14,756 - INFO - 172.20.0.1 - - [15/Jun/2025 10:42:14] "POST /client-log HTTP/1.1" 200 -
+2025-06-15 10:42:14,885 - INFO - Exécution de la requête get_accessibility_data en 0.173s
+2025-06-15 10:42:14,886 - INFO - Réponse 200 pour GET /get_accessibility_data en 0.174s
+2025-06-15 10:42:14,886 - INFO - 172.20.0.1 - - [15/Jun/2025 10:42:14] "GET /get_accessibility_data HTTP/1.1" 200 -
+2025-06-15 10:42:14,946 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-15 10:42:14,946 - INFO - Log client à 2025-06-15T10:42:14.933Z : ["[INFO] Données d'accessibilité récupérées :", {'lg_access_moy': 519164.4964337632, 'lg_accessible': 682222.3422465249, 'lg_non_access': 130978.47311978211, 'pourcent_access': 52, 'pourcent_access_moy': 38, 'pourcent_non_access': 9}]
+2025-06-15 10:42:14,947 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-15 10:42:14,947 - INFO - 172.20.0.1 - - [15/Jun/2025 10:42:14] "POST /client-log HTTP/1.1" 200 -
+2025-06-15 10:42:15,003 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-15 10:42:15,004 - INFO - Log client à 2025-06-15T10:42:14.977Z : ['[INFO] Histogramme (barChart) initialisé']
+2025-06-15 10:42:15,004 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-15 10:42:15,005 - INFO - 172.20.0.1 - - [15/Jun/2025 10:42:15] "POST /client-log HTTP/1.1" 200 -
+2025-06-15 10:42:15,033 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-15 10:42:15,034 - INFO - Log client à 2025-06-15T10:42:15.008Z : ['[INFO] Graphique en camembert (pieChart) initialisé']
+2025-06-15 10:42:15,035 - INFO - Réponse 200 pour POST /client-log en 0.002s
+2025-06-15 10:42:15,035 - INFO - 172.20.0.1 - - [15/Jun/2025 10:42:15] "POST /client-log HTTP/1.1" 200 -
+2025-06-15 10:42:17,012 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-15 10:42:17,012 - ERROR - Log client à 2025-06-15T10:42:17.006Z : [{}]
+2025-06-15 10:42:17,012 - INFO - Réponse 200 pour POST /client-log en 0.000s
+2025-06-15 10:42:17,013 - INFO - 172.20.0.1 - - [15/Jun/2025 10:42:17] "POST /client-log HTTP/1.1" 200 -
+2025-06-15 10:42:22,806 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-15 10:42:22,807 - INFO - Log client à 2025-06-15T10:42:22.799Z : ['[INFO] Bouton "PMR" cliqué à 2025-06-15T10:42:22.798Z - Couche Stationnement PMR visible: false']
+2025-06-15 10:42:22,808 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-15 10:42:22,808 - INFO - 172.20.0.1 - - [15/Jun/2025 10:42:22] "POST /client-log HTTP/1.1" 200 -
+2025-06-15 10:42:22,811 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-15 10:42:22,811 - INFO - Log client à 2025-06-15T10:42:22.800Z : ['[INFO] Couche Stationnement PMR devient visible']
+2025-06-15 10:42:22,812 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-15 10:42:22,813 - INFO - 172.20.0.1 - - [15/Jun/2025 10:42:22] "POST /client-log HTTP/1.1" 200 -
+2025-06-15 10:42:24,153 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-15 10:42:24,154 - INFO - Log client à 2025-06-15T10:42:24.142Z : ['[INFO] Bouton "PMR" cliqué à 2025-06-15T10:42:24.142Z - Couche Stationnement PMR visible: true']
+2025-06-15 10:42:24,154 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-15 10:42:24,155 - INFO - 172.20.0.1 - - [15/Jun/2025 10:42:24] "POST /client-log HTTP/1.1" 200 -
+2025-06-15 10:42:24,161 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-15 10:42:24,162 - INFO - Log client à 2025-06-15T10:42:24.143Z : ['[INFO] Couche Stationnement PMR devient masquée']
+2025-06-15 10:42:24,162 - INFO - Réponse 200 pour POST /client-log en 0.002s
+2025-06-15 10:42:24,163 - INFO - 172.20.0.1 - - [15/Jun/2025 10:42:24] "POST /client-log HTTP/1.1" 200 -
+2025-06-15 10:42:28,353 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-15 10:42:28,354 - INFO - Log client à 2025-06-15T10:42:28.266Z : ['[DEBUG] Itinéraire panel display: block']
+2025-06-15 10:42:28,386 - INFO - Réponse 200 pour POST /client-log en 0.033s
+2025-06-15 10:42:28,387 - INFO - 172.20.0.1 - - [15/Jun/2025 10:42:28] "POST /client-log HTTP/1.1" 200 -
+2025-06-15 10:42:34,259 - INFO - Nouvelle requête : POST /api/itineraire_coord depuis 172.20.0.1
+2025-06-15 10:42:34,260 - INFO - Données reçues : {'start': [4.846522090044406, 45.744410965658574], 'end': [4.8402024841206694, 45.75273733269154]}
+2025-06-15 10:42:34,260 - INFO - Exécution de la requête avec lon1: 4.846522090044406, lat1: 45.744410965658574, lon2: 4.8402024841206694, lat2: 45.75273733269154
+2025-06-15 10:42:35,590 - INFO - Réponse 200 pour POST /api/itineraire_coord en 1.331s
+2025-06-15 10:42:35,591 - INFO - 172.20.0.1 - - [15/Jun/2025 10:42:35] "POST /api/itineraire_coord HTTP/1.1" 200 -
+2025-06-15 10:42:45,424 - INFO - Nouvelle requête : POST /client-log depuis 172.20.0.1
+2025-06-15 10:42:45,425 - INFO - Log client à 2025-06-15T10:42:45.416Z : ['[DEBUG] Itinéraire panel display: none']
+2025-06-15 10:42:45,425 - INFO - Réponse 200 pour POST /client-log en 0.001s
+2025-06-15 10:42:45,425 - INFO - 172.20.0.1 - - [15/Jun/2025 10:42:45] "POST /client-log HTTP/1.1" 200 -

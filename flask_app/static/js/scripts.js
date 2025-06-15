@@ -274,21 +274,29 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   // Gestion des boutons de bascule des couches WMS
+  // Bouton Accessibilité par quartier pour wmsLayerQuartier
   document.getElementById('toggle-wms-quartier').addEventListener('click', function() {
+    console.log(`[INFO] Bouton "Accessibilité par quartier" cliqué à ${new Date().toISOString()} - Couche Accessibilité par quartier visible: ${visible}`);
     const visible = wmsLayerQuartier.getVisible();
     wmsLayerQuartier.setVisible(!visible);
+    console.log(`[INFO] Couche Accessibilité par quartier devient ${!visible ? 'visible' : 'masquée'}`);
   });
   
+  // Bouton Tronçon d'accessibilité pour wmsLayerTroncon
   document.getElementById('toggle-wms-troncon').addEventListener('click', function() {
     const visible = wmsLayerTroncon.getVisible();
+    console.log(`[INFO] Bouton "Tronçon d'accessibilité" cliqué à ${new Date().toISOString()} - Couche Tronçon d'accessibilité visible: ${visible}`);
     wmsLayerTroncon.setVisible(!visible);
+    console.log(`[INFO] Couche Tronçon d'accessibilité devient ${!visible ? 'visible' : 'masquée'}`);
   });
   
   // Bouton Transport pour wmsLayerArretbus et wmsLayerLignebus
   document.getElementById('toggle-wms-transport').addEventListener('click', function() {
     const isVisible = wmsLayerArretbus.getVisible() && wmsLayerLignebus.getVisible();
+    console.log(`[INFO] Bouton "Transport" cliqué à ${new Date().toISOString()} - Couche Transport visible: ${visible}`);
     wmsLayerArretbus.setVisible(!isVisible);
     wmsLayerLignebus.setVisible(!isVisible);
+    console.log(`[INFO] Couche Transport devient ${!visible ? 'visible' : 'masquée'}`);
   });
   
   // Bouton ERP pour wmsLayerErp
@@ -726,10 +734,10 @@ document.addEventListener('DOMContentLoaded', function() {
     { layer: wmsLayerStationnementpmr, name: 'stationnement_pmr', title: 'Stationnement PMR' },
     { layer: wmsLayerTravaux, name: 'travaux', title: 'Travaux' }
   ];
-/* ================================ */
-/* Script log authentificatification de logging.html */
-/* ================================ */
 
+
+
+// Script log authentificatification de logging.html */
 
     // Vérifie si l'on est sur la page d'authentification
   if (document.body.classList.contains('logging-page')) {
@@ -743,9 +751,9 @@ document.addEventListener('DOMContentLoaded', function() {
       }
   }
 
-// ===============================
+
 // Comportement spécifique à la page de création de compte (logging_new.html)
-// ===============================
+
 
   if (document.body.classList.contains('logging-new-page')) {
       console.log("Page de création de compte détectée.");

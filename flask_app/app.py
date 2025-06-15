@@ -1,5 +1,5 @@
 from flask import Flask, render_template, jsonify, request, redirect, url_for, g
-from flask_cors import CORS  # Importer CORS
+from flask_cors import CORS 
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine, Table, Column, Integer, String, Boolean, Date, MetaData, text
 from sqlalchemy.orm import sessionmaker
@@ -21,7 +21,7 @@ import re
 # Chargement des variables d'environnement
 load_dotenv()
 
-# Configuration du logger (à placer ici, juste après les imports)
+# Configuration du logger 
 logging.basicConfig(
     filename="/app/logs/app.log",  # Fichier où seront enregistrés les logs
     level=logging.INFO,  # Niveau d'enregistrement des logs
@@ -30,7 +30,7 @@ logging.basicConfig(
 
 logger = logging.getLogger(__name__)  # Création du logger
 
-# Test des variables d'environnement
+# Test des variables d'environnement - sera supprimé en production
 logger.info("Chargement des variables d'environnement...")
 print("AUTH_POSTGRES_USER:", os.getenv('AUTH_POSTGRES_USER'))
 print("AUTH_POSTGRES_PASSWORD:", os.getenv('AUTH_POSTGRES_PASSWORD'))
@@ -109,7 +109,7 @@ def after_request_logging(response):
 @app.route('/client-log', methods=['POST'])
 def client_log():
     log_data = request.get_json()
-    # Vous recevrez un dictionnaire du type
+    # Réception du log sous forme d'un dictionnaire du type
     # { "level": "log"/"warn"/"error", "messages": [...], "timestamp": "..." }
     level = log_data.get('level', 'log')
     message = f"Log client à {log_data.get('timestamp')} : {log_data.get('messages')}"
@@ -254,7 +254,7 @@ def login():
             """
 
         # Vérification de l'expiration du mot de passe
-        # Si la date de création est antérieure à (date d'aujourd'hui - 6 mois)
+        # Si la date de création est antérieure à la date d'aujourd'hui - 6 mois)
         if result['date_creat_pwd'] < date.today() - relativedelta(months=6):
             return """
                 <html>

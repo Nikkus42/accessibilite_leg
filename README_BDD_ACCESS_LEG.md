@@ -1,26 +1,45 @@
-# Creation des 4 shémas
+# Base de données access_leg:
 
--- Créer le schéma 'travaux' si nécessaire <br>
+Cette base de données regroupe les données affichées dans l’application web SIG.<br> 
+Elle comporte quatre schémas.
+
+## Création des 4 shémas:
+
+-- Créer le schéma 'travaux': <br>
 CREATE SCHEMA IF NOT EXISTS travaux;
 
--- Créer le schéma 'accessibilite' si nécessaire<br>
+-- Créer le schéma 'accessibilite':<br>
 CREATE SCHEMA IF NOT EXISTS accessibilite;
 
--- Créer le schéma 'transport' si nécessaire<br>
+-- Créer le schéma 'transport':<br>
 CREATE SCHEMA IF NOT EXISTS transport;
 
--- Créer le schéma 'limite_admin' si nécessaire<br>
+-- Créer le schéma 'limite_admin':<br>
 CREATE SCHEMA IF NOT EXISTS limite_admin;
 
-# Création d'une vue matérialisé d'indicateur
-Pour chaque quartier IRIS la formule est:<br>
-(longueur troncon non accessible +(longueur toncon accessiilité moyenne / 2) * popultation iris) / population agglomération<br>
+# Création des tables:
 
-la VM fait appelle à 3 tables:<br>
+Les tables ont été créées et les données injectées dans cette base de données via le gestionnaire DB de l'outil SIG QGIS.
+
+# Création de la vue matérialisée d'indicateurs
+
+Le projet prévoit des indicateurs d’accessibilité permettant à l’agglomération d’identifier les zones du territoire nécessitant des aménagements pour améliorer la circulation des personnes en situation de handicap.
+
+Un indicateur a été conçu pour mettre en évidence les quartiers IRIS où l’accessibilité est limitée.<br>
+La formule de calcul appliquée à chaque quartier IRIS est la suivante :<br>
+```
+(longueur troncon non accessible +(longueur toncon accessilité moyenne / 2) * population iris) / population agglomération
+```
+
+Cette fomule prend en compte les longueurs de tronçons selon leur niveau d’accessibilité et les met en relation avec la population du quartier.
+
+### La VM fait appelle à 3 tables:<br>
 
 - limite_admin.iris<br>
 - accessibilite.troncon_cheminement<br>
 - limite_admin.population_iris<br>
+
+Script de création de la VM:
 
 
 ```
@@ -136,9 +155,11 @@ FROM
     
 ```
 
-# Rafraichissement de la VM ==> création d'une fonction et de 3 trigger
+## Rafraichissement de la VM 
 
-## Création de la fonction de rafraichissement de la VM
+Une fonction et trois triggers ont été créés pour mettre à jour la vue après chaque modification des données.
+
+### Création de la fonction de rafraichissement
 
 ```
 CREATE OR REPLACE FUNCTION limite_admin.refresh_vm_iris_indicateur()
@@ -151,7 +172,9 @@ $$ LANGUAGE plpgsql;
 ```
 
 
-## Création trigger sur table limite_admin.iris
+### Création des trigger
+
+- Sur table limite_admin.iris:
 
 ```
 CREATE TRIGGER refresh_vm_iris_indicateur_iris_trigger
@@ -160,7 +183,7 @@ FOR EACH STATEMENT
 EXECUTE FUNCTION limite_admin.refresh_vm_iris_indicateur();
 ```
 
-## Création trigger sur table accessibilite.troncon_cheminement
+- Sur accessibilite.troncon_cheminement:
 
 ```
 CREATE TRIGGER refresh_vm_iris_indicateur_troncon_trigger
@@ -169,7 +192,7 @@ FOR EACH STATEMENT
 EXECUTE FUNCTION limite_admin.refresh_vm_iris_indicateur();
 ```
 
-## Création trigger sur table limite_admin.population_iris
+- Sur limite_admin.population_iris:
 
 ```
 CREATE TRIGGER refresh_vm_iris_indicateur_population_trigger
